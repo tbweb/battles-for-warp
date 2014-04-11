@@ -1,0 +1,7 @@
+class Database
+
+represent the database
+-_login			:	database login
+-_password		:	database pass
+-_database		:	database name
++=verbose		:	(boolean)verbose mode

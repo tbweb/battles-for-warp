@@ -1,0 +1,6 @@
+class Game
+
+Represent the game
+-_player1		:	represent a player
+-_player2		:	represent a player
+-_information	:	info message gave by the game to the user

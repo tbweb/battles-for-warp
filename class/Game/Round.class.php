@@ -2,37 +2,37 @@
 	
 Class Round
 {
-	private	$ship;
-	private	$speedPp = 0;
-	private	$shieldPp = 0;
-	private	$weaponPp = 0;
+	private	$_ship;
+	private	$_speedPp = 0;
+	private	$__shieldPp = 0;
+	private	$_weaponPp = 0;
 	
 	public function getShip() {
-		return $this->ship;
+		return $this->_ship;
 	}
 	public function setShip($ship) {
-		$this->ship = $ship;
+		$this->_ship = $ship;
 		return $this;
 	}
 	public function getSpeedPp() {
-		return $this->speedPp;
+		return $this->_speedPp;
 	}
 	public function setSpeedPp($speedPp) {
-		$this->speedPp = $speedPp;
+		$this->_speedPp = $speedPp;
 		return $this;
 	}
 	public function getShieldPp() {
-		return $this->shieldPp;
+		return $this->_shieldPp;
 	}
 	public function setShieldPp($shieldPp) {
-		$this->shieldPp = $shieldPp;
+		$this->_shieldPp = $shieldPp;
 		return $this;
 	}
 	public function getWeaponPp() {
-		return $this->weaponPp;
+		return $this->_weaponPp;
 	}
 	public function setWeaponPp($weaponPp) {
-		$this->weaponPp = $weaponPp;
+		$this->_weaponPp = $weaponPp;
 		return $this;
 	}
 }
