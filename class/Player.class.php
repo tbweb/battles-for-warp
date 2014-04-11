@@ -2,7 +2,7 @@
 class Player{
 	private $playerName = "";
 	private $playerRace = "";
-	
+
 	public function __construct($player, $racePlayer)
 	{
 		$this->playerName = $player;

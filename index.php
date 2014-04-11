@@ -23,8 +23,8 @@
 		$session->setGameInSession($game);
 	if ($db_conn = $db->connect_db())
 	{
-		$query = "SELECT nom FROM races";
-		$res = mysqli_query($db_conn, $query);		
+		$query = "SELECT name FROM races";
+		$res = mysqli_query($db_conn, $query);
 		while ($req = mysqli_fetch_assoc($res))
 			$tabRaces[] = $req;
 	}
@@ -36,27 +36,27 @@
 </head>
 <body>
 	<h1>Game</h1>
-	<?php 
-		echo $game->getPlayer1()->getPlayerName();
-		echo $game->getPlayer2()->getPlayerName();
-		echo $game->getPlayer1()->getPlayerRace();
-		echo $game->getPlayer2()->getPlayerRace();
+	<?php
+//		echo $game->getPlayer1()->getPlayerName();
+//		echo $game->getPlayer2()->getPlayerName();
+//		echo $game->getPlayer1()->getPlayerRace();
+//		echo $game->getPlayer2()->getPlayerRace();
 	?>
 	<form action="index.php" method="POST">
 		Name player 1 : <input type="text" name="player1" value=""/><br>
-		Race player 1 : 
+		Race player 1 :
 		<select name="racePlayer1">
-		<?php 
+		<?php
 			foreach ($tabRaces as $races)
-				echo "<option value='".$races['nom']."'>".$races['nom']."</option>";
+				echo "<option value='".$races['name']."'>".$races['name']."</option>";
 		?>
 		</select><br>
 		Name player 2 : <input type="text" name="player2" value=""/><br>
-		Race player 2 : 
+		Race player 2 :
 		<select name="racePlayer2">
-		<?php 
+		<?php
 			foreach ($tabRaces as $races)
-				echo "<option value='".$races['nom']."'>".$races['nom']."</option>";
+				echo "<option value='".$races['name']."'>".$races['name']."</option>";
 		?>
 		</select><br>
 		<input type="submit" value="Send"/>
