@@ -3,7 +3,11 @@
 
 	require_once 'class/Game/Session.class.php';
 	require_once 'class/Game/Game.class.php';
+	require_once 'class/Database/Database.class.php';
+
+	Database::$verbose = FALSE;
 	$session = new Session();
+	$db = new Database();
 	$game = $session->getGameInSession();
 	if (!$game)
 	{
@@ -12,21 +16,14 @@
 		if ($game)
 			$game->playGame();
 	}
-	if ($bdd = mysqli_connect('phpmyadmin.local.42.fr', $_POST['login'], $_POST['pwd']))
+	if ($db_conn = $db->connect_db())
 	{
-		$query = "SELECT name FROM races;";
-		if (!mysqli_query($bdd, $elem))
-			die("Error creating table: ".$elem.mysqli_error($bdd)."<br><a href='install.php'>Page de connexion</a>");
-		$conn = mysqli_connect($host, $user, $password, $database, $port, $socket);
-		$req = mysqli_query($conn, $query);
-		while ($races = mysqli_fetch_assoc($req))
-		{
-			echo $race['nom'];
-		}
+		$query = "SELECT nom FROM races";
+		$res = mysqli_query($db_conn, $query);		
+		while ($req = mysqli_fetch_assoc($res))
+			$tabRaces[] = $req;
 	}
-	else
-		echo "Error: bad login/password<br><a href='install.php'>Page de connexion</a>";
-	mysqli_close($bdd);
+	mysqli_close($db_conn);
 ?>
 <html>
 <head>
@@ -36,6 +33,13 @@
 	<h1>Game</h1>
 	<form action="">
 		Name player 1 : <input type="text" name="player1" value=""/><br>
+		
+		<?php 
+			foreach ($tabRaces as $races)
+			{
+				echo $races['nom'];
+			}
+		?>
 		Name player 2 : <input type="text" name="player2" value=""/>
 	</form>
 </body>
