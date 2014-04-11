@@ -1,0 +1,9 @@
+class Physics
+
+-_pos	:	the Position of the physical part of the object
+-_life	:	the life of the physical part of the object
+
+
+getters & setters :
++set_pos($p)
++get_pos()

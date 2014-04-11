@@ -1,0 +1,10 @@
+Class Shield
+
+This class is the representation of the defense ability of a ship
+-_shield	:	the base protection of the ship
+-_boost		:	the bonus protection gave by PP during controll turn
+
+Getters and setters of the previous atributs :
++add_boost($pp)		:	add a pp boost
++get_shield()		:	return the total of the base shield + boost
++take_damage($dmg)	:	simulate the reception of an attack

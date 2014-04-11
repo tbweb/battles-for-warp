@@ -1,0 +1,8 @@
+abstract class Ship
+
+the representation of a Ship, a Physical class
+>_weapons	:	a Weapon array, listing every weapon on the ship (See Weapon doc)
+>_motor		:	a Motor (See Motor doc)
+>_shield	:	a Shield (See Shield doc)
+>_pp		:	an int representing the PP that can be displatched between weapons motor and shield by the played during
+				the controll turn 

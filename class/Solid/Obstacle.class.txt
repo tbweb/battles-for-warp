@@ -1,0 +1,3 @@
+class Obstacle
+
+The abstract representation of every obstacle

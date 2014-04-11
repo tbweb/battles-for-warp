@@ -1,6 +1,7 @@
 <?php
 class Motor{
 	private int		$_speed = 0;
+	private int		$_boost = 0;
 	private int		$_manover = 5;
 	private boolean	$_manovering = False;
 

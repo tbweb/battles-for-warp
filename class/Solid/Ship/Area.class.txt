@@ -1,0 +1,13 @@
+Class Area
+
+This class is the representation of the places where a weapon can shoot at, with 3 parameters
+-_scope	:	An array of int, representing the differents levels of distance ascocieted with the corresponding minimun dice 				score to get to touch
+-_dir	:	Who show the direction pointed by the weapon from the othonormal of the ship if set to less than 0,
+			the weapon can shoot in any direction
+-_angle	:	if a _dir is present, it represents the angle tolerance of the weapon
+
++set_scope($dice, $dist)	:	set the scope with the good values, can override distances in case of a $dice key
+								duplication
++set_angle($angle)			:	set the angle of the weapon
++get_angle()				:	get the angle
++get_dir()					:	get the direction of the weapon

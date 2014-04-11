@@ -1,0 +1,11 @@
+class Weapon
+
+-_base_charges	:	the standard charges of the ship
+-_charges		:	the current charges of the ship
+-_boost			:	the bonus charges gave by pp during controll turn
+-_zone			:	the Area where the weapon an hit (See Area Doc)
+
++add_scope($dice, $dist)			:	add a distance scale to the zone
++shoot_target						:	Proccess a dice rool on a target, see if it's in range and look if the result touch
++in_range($from, $to)				:	look if the target $to is in range $from the ship
+-in_angle($angle, $normal, $limit)	:	check if if the target can be reach by directional weapon

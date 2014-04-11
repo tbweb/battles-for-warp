@@ -1,0 +1,4 @@
+abstract class Solid
+
+represent a Solid element, with physical atributes
+-_phy	:	a Physics atribute common with every of this childs

@@ -1,8 +1,9 @@
 <?php
 class Physics{
-	Private $_x;
-	Private $_y;
-	private $_rot = 1;
+	private $_pos = new Position();
 	private $_life;
+
+	public function set_pos($p)	{ $this->_pos = $p; }
+	public function get_pos()	{ return $this->_pos; }
 }
 ?>
