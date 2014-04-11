@@ -1,5 +1,7 @@
 <?php
-class {
-
+class Physics{
+	Private $x;
+	Private $y;
+	private $rot;
 }
 ?>
