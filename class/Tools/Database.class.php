@@ -11,8 +11,8 @@ class Database
 	{
 		if (!empty($_SESSION['mamp_login']) && !empty($_SESSION['mamp_pwd']) && $this::$verbose === TRUE)
 		{
-// 			print($_SESSION['mamp_login']);
-// 			print($_SESSION['mamp_pwd']);
+			print($_SESSION['mamp_login']);
+			print($_SESSION['mamp_pwd']);
 			print($_SESSION['db_name']);
 		}
 	}

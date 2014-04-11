@@ -1,21 +1,26 @@
 <?php
 	session_start();
 
-	require_once 'class/Game/Session.class.php';
+	require_once 'class/Tools/Session.class.php';
 	require_once 'class/Game/Game.class.php';
-	require_once 'class/Database/Database.class.php';
+	require_once 'class/Tools/Database.class.php';
 
 	Database::$verbose = FALSE;
 	$session = new Session();
 	$db = new Database();
 	$game = $session->getGameInSession();
-	if (!$game)
+	if (empty($game))
 	{
-		if (!empty($_POST['player1']) && !empty($_POST['player2']))
-			$game = new Game($_POST['player1'], $_POST['player2']);
+		if (!empty($_POST['player1']) && !empty($_POST['player2']) && !empty($_POST['racePlayer1']) && !empty($_POST['racePlayer2']))
+			$game = new Game($_POST['player1'], $_POST['player2'], $_POST['racePlayer1'], $_POST['racePlayer2']);
 		if ($game)
+		{
 			$game->playGame();
+			$session->setGameInSession($game);
+		}
 	}
+	else
+		$session->setGameInSession($game);
 	if ($db_conn = $db->connect_db())
 	{
 		$query = "SELECT nom FROM races";
@@ -31,16 +36,30 @@
 </head>
 <body>
 	<h1>Game</h1>
-	<form action="">
+	<?php 
+		echo $game->getPlayer1()->getPlayerName();
+		echo $game->getPlayer2()->getPlayerName();
+		echo $game->getPlayer1()->getPlayerRace();
+		echo $game->getPlayer2()->getPlayerRace();
+	?>
+	<form action="index.php" method="POST">
 		Name player 1 : <input type="text" name="player1" value=""/><br>
-		
+		Race player 1 : 
+		<select name="racePlayer1">
 		<?php 
 			foreach ($tabRaces as $races)
-			{
-				echo $races['nom'];
-			}
+				echo "<option value='".$races['nom']."'>".$races['nom']."</option>";
 		?>
-		Name player 2 : <input type="text" name="player2" value=""/>
+		</select><br>
+		Name player 2 : <input type="text" name="player2" value=""/><br>
+		Race player 2 : 
+		<select name="racePlayer2">
+		<?php 
+			foreach ($tabRaces as $races)
+				echo "<option value='".$races['nom']."'>".$races['nom']."</option>";
+		?>
+		</select><br>
+		<input type="submit" value="Send"/>
 	</form>
 </body>
 </html>

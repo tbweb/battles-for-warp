@@ -7,21 +7,21 @@ class Session
 	
 	public function __construct()
 	{
-		if (!empty($_SESSION['game']) && $this->verbose === TRUE)
+		if (!empty($_SESSION['game']) && self::$verbose === TRUE)
 		{
 			print($_SESSION['game']);
 		}
 	}
-	
+
 	public function	getGameInSession()
 	{
 		if (!empty($_SESSION['game']))
-			return (serialize($game));
+			return (unserialize($_SESSION['game']));
 	}
-	
+
 	public function	setGameInSession($game)
 	{
-		return ($_SESSION['game'] = unserialize($game));
+		$_SESSION['game'] = serialize($game);
 	}
 }
 ?>
