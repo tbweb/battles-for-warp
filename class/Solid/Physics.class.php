@@ -1,7 +1,8 @@
 <?php
 class Physics{
-	Private $x;
-	Private $y;
-	private $rot;
+	Private $_x;
+	Private $_y;
+	private $_rot = 0;
+	private $_life;
 }
 ?>
