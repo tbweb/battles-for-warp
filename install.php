@@ -25,10 +25,6 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
-			.text
-			{
-				
-			}
 			table
 			{
 				margin: 10px;
@@ -45,15 +41,15 @@
 					<table>
 						<tr>
 							<td style="text-align: right;">Nom de la base de donn&eacute;es :</td>
-							<td class="text"><input type="text" name="db_name"></td>
+							<td><input type="text" name="db_name"></td>
 						</tr>
 						<tr>
 							<td style="text-align: right;">mamp login :</td>
-							<td class="text"><input type="text" name="login"></td>
+							<td><input type="text" name="login"></td>
 						</tr>
 						<tr>
 							<td style="text-align: right;">mamp password :</td>
-							<td class="text"><input type="password" name="pwd"></td>
+							<td><input type="password" name="pwd"></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input type="submit" name="submit" value="Connect"></td>
@@ -71,10 +67,10 @@
 			$_SESSION['mamp_login'] = $_POST['login'];
 			$_SESSION['mamp_pwd'] = $_POST['pwd'];
 			$_SESSION['db_name'] = $_POST['db_name'];
-			echo "Server connected\n";
-			$request[0] = "CREATE DATABASE IF NOT EXISTS `" . $_SESSION['db_name'] . "`;";
+			echo "Server connected<br>";
+			$request[0] = "CREATE DATABASE `" . $_SESSION['db_name'] . "`;";
 			$request[1] = "USE `" . $_SESSION['db_name'] . "`;";
-			$request[2] = "CREATE TABLE IF NOT EXISTS `races` (
+			$request[2] = "CREATE TABLE `races` (
   `id_race` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   PRIMARY KEY (`id_race`)
@@ -82,7 +78,7 @@
 			$request[3] = "INSERT INTO `races` (`id_race`, `nom`) VALUES
 (1, 'Tau'),
 (2, 'Eldars Noirs');";
-			$request[4] = "CREATE TABLE IF NOT EXISTS `ships` (
+			$request[4] = "CREATE TABLE `ships` (
   `id_vaisseau` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   `taille` varchar(20) NOT NULL,
@@ -98,13 +94,13 @@
 			$request[5] = "INSERT INTO `ships` (`id_vaisseau`, `nom`, `taille`, `pc`, `pm`, `vitesse`, `manoeuvre`, `bouclier`, `bonus`, `race`) VALUES
 (1, 'Tigershark', '4x2', 10, 11, 15, 3, 0, '', 1),
 (2, 'Tigershark AX-1-0', '4x2', 10, 11, 15, 3, 0, '', 1);";
-			$request[6] = "CREATE TABLE IF NOT EXISTS `weapons` (
+			$request[6] = "CREATE TABLE `weapons` (
   `id_arme` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `Nom` varchar(50) NOT NULL,
   `PP` int(11) NOT NULL,
   PRIMARY KEY (`id_arme`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
-			$request[7] = "CREATE TABLE IF NOT EXISTS `weapship` (
+			$request[7] = "CREATE TABLE `weapship` (
   `id_weapship` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idvaisseau` int(10) unsigned NOT NULL,
   `idweapon` int(10) unsigned NOT NULL,
@@ -115,18 +111,15 @@
 				if ($elem)
 				{
 					if (!mysqli_query($bdd, $elem))
-						die("Error creating table: ".$elem.mysqli_error($bdd)."\n");
+						die("Error creating table: ".$elem.mysqli_error($bdd)."<br><a href='install.php'>Page de connexion</a>");
 				}
 			}
-			echo "Database created\n";
+			echo "Database created<br>";
 			mysqli_close($bdd);
 			header('location: index.php');
 		}
 		else
-		{
-			echo "Error creating database: ".mysqli_error()."\n";
-			header('location: install.php');
-		}
+			echo "Error: bad login/password<br><a href='install.php'>Page de connexion</a>";
 	}
 	else
 		header('location: install.php');
