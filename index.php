@@ -5,7 +5,7 @@
 	require_once 'class/Game/Game.class.php';
 	require_once 'class/Database/Database.class.php';
 
-	Database::$verbose = TRUE;
+	Database::$verbose = FALSE;
 	$session = new Session();
 	$db = new Database();
 	$game = $session->getGameInSession();
@@ -24,7 +24,6 @@
 	$query = "SELECT name FROM races";
 	$db->connect_db();
 	$tabRaces = $db->getContentInDb($query);
-	print_r($tabRaces);
 	$db->close_db();
 ?>
 <html>
