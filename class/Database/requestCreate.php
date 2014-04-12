@@ -22,12 +22,12 @@
 		  `pc` int(11) NOT NULL,
 		  `pm` int(11) NOT NULL,
 		  `speed` int(11) NOT NULL,
-		  `manoeuvre` int(11) NOT NULL,
+		  `move` int(11) NOT NULL,
 		  `shield` int(11) NOT NULL,
 		  `bonus` int(11) NOT NULL,
 		  `id_race` int(11) unsigned NOT NULL,
 		  PRIMARY KEY (`id_ship`),
-		  FOREIGN KEY (`id_race`) REFERENCES races(id_race)
+		  FOREIGN KEY (`id_race`) REFERENCES races(`id_race`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 		$request[5] = "INSERT INTO `ships` (`id_ship`, `name`, `size`, `pc`, `pm`, `speed`, `manoeuvre`, `shield`, `bonus`, `id_race`) VALUES
@@ -36,7 +36,7 @@
 
 		$request[6] = "CREATE TABLE `weapons` (
 		  `id_weapon` int(11) unsigned NOT NULL AUTO_INCREMENT,
-		  `Name` varchar(50) NOT NULL,
+		  `name` varchar(50) NOT NULL,
 		  `pp` int(11) NOT NULL,
 		  PRIMARY KEY (`id_weapon`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
