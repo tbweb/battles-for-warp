@@ -1,6 +1,6 @@
 <?php
 include 'Area.class.php';
-abstract class Weapon{
+abstract class Weapon {
 	private int			$_base_charges = 0;
 	private int			$_charges = 0;
 	private int			$_boost = 0;

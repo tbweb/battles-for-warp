@@ -4,7 +4,7 @@
 	require_once 'class/Tools/Session.class.php';
 	require_once 'class/Game/Game.class.php';
 	require_once 'class/Database/Database.class.php';
-	$verbose_global = TRUE;
+	$verbose_global = FALSE;
 	if ($verbose_global)
 		Database::$verbose = TRUE;
 	$session = new Session();
@@ -17,10 +17,19 @@
 	else if (!empty($_GET['action']) && $_GET['action'] == "new")
 	{
 		if (!empty($_POST['player1']) && !empty($_POST['player2']) && !empty($_POST['racePlayer1']) && !empty($_POST['racePlayer2']))
-			$game = new Game($_POST['player1'], $_POST['player2'], $_POST['racePlayer1'], $_POST['racePlayer2']);
+		{
+			$i = 1;
+			$arrayPlayers = array();
+			while ($i <= 4 && !empty($_POST['player'.$i]) && !empty($_POST['racePlayer'.$i]))
+			{
+				$arrayPlayers[] = new Player($_POST['player'.$i], $_POST['racePlayer'.$i]);
+				$i++;
+			}
+			print_r($arrayPlayers);
+			$game = new Game($arrayPlayers);
+		}
 		if ($game)
 		{
-			echo "tito";
 			$session->setGameInSession($game);
 			header('location: game.php');
 		}

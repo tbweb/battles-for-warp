@@ -1,40 +1,53 @@
 <html>
 <head>
-
+<style>
+	div.form_content
+	{
+		width: 80%;
+		height: 110px; 
+	}
+	div.form_content h3
+	{
+		margin-top: 0px;
+	}
+</style>
 </head>
 <body>
 <h1>Game</h1>
 	<form action="index.php?action=new" method="POST">
-		Name player 1 : <input type="text" name="player1" value=""/><br>
-		Race player 1 :
-		<select name="racePlayer1">
+		<div class="form_content">
 		<?php
-			print_r($tabRaces);
+			$option = "";
 			foreach ($tabRaces as $race)
-				echo "<option value='".$race['name']."'>".$race['name']."</option>";
+				$option .= "<option value='".$race['name']."'>".$race['name']."</option>";
+			$i = 1;
+			while ($i <= 4)
+			{
+				print('<div class="player-info" style="float: left; margin-right: 15px;">');
+				print("<h3>Player $i</h3>");
+				print('Name : <input type="text" name="player'.$i.'" value=""/><br>');
+				print('Race : <select name="racePlayer'.$i.'">');
+				print($option);
+				print("</select></div>");
+				$i++;
+			}
 		?>
-		</select><br>
-		Name player 2 : <input type="text" name="player2" value=""/><br>
-		Race player 2 :
-		<select name="racePlayer2">
-		<?php
-			foreach ($tabRaces as $race)
-				echo "<option value='".$race['name']."'>".$race['name']."</option>";
-		?>
-		</select><br>
-		<input type="submit" value="Send"/>
+		</div>
+		<input type="submit" value="Jouer"/>
 	</form>
 	<h2>Partie en cours</h2>
 	<?php
-		
 		$formatName = "Name : %s <br>";
 		$formatRace = "Race : %s <br>";
-		print("<h3>Player 1</h3>");
-		printf($formatName, $game->getPlayer1()->getPlayerName());
-		printf($formatRace, $game->getPlayer1()->getPlayerRace());
-		print("<h3>Player 2</h3>");
-		printf($formatName, $game->getPlayer2()->getPlayerName());
-		printf($formatRace, $game->getPlayer2()->getPlayerRace());
+		$i = 1;
+		foreach ($game->getPlayers() as $player)
+		{
+			print("<h3>Player $i</h3>");
+			printf($formatName, $player->getName());
+			printf($formatRace, $player->getRace());
+			$i++;
+		}
+		
 	?>
 	<form action="index.php?action=resume" method="POST">
 		<input type="submit" value="Reprendre la partie"/>

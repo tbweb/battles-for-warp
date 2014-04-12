@@ -1,26 +1,25 @@
 <?php
 class Player{
-	private $playerName = "";
-	private $playerRace = "";
+	private $name = "";
+	private $race = "";
 
-	public function __construct($player, $racePlayer)
+	public function __construct($name, $race)
 	{
-		$this->playerName = $player;
-		$this->playerRace = $racePlayer;
+		$this->name = $name;
+		$this->race = $race;
 	}
-
-	public function getPlayerName() {
-		return $this->playerName;
+	public function getName() {
+		return $this->name;
 	}
-	public function setPlayerName($playerName) {
-		$this->playerName = $playerName;
+	public function setName($name) {
+		$this->name = $name;
 		return $this;
 	}
-	public function getPlayerRace() {
-		return $this->playerRace;
+	public function getRace() {
+		return $this->race;
 	}
-	public function setPlayerRace($playerRace) {
-		$this->playerRace = $playerRace;
+	public function setRace($race) {
+		$this->race = $race;
 		return $this;
 	}
 }
