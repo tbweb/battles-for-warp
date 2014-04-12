@@ -37,7 +37,7 @@ class Database
 			return (NULL);
 		}
 	}
-	
+
 	public function close_db()
 	{
 		mysqli_close($this->_db);
@@ -57,10 +57,10 @@ class Database
 		}
 		return ($content);
 	}
-	
+
 	public function getDb() {
 		return $this->_db;
 	}
-	
+
 }
 ?>

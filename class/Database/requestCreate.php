@@ -31,6 +31,11 @@
 		  `id_weapon` int(11) unsigned NOT NULL AUTO_INCREMENT,
 		  `name` varchar(50) NOT NULL,
 		  `pp` int(11) NOT NULL,
+		  `srange` varchar(5) NOT NULL,
+		  `mrange` varchar(5) NOT NULL,
+		  `lrange` varchar(5) NOT NULL,
+		  `bonus` varchar(255),
+		  `effect` varchar(255) NOT NULL,
 		  PRIMARY KEY (`id_weapon`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
@@ -75,13 +80,28 @@
 		  FOREIGN KEY (`id_weapon`) REFERENCES weapons(`id_weapon`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$request[9] = "INSERT INTO `races` (`id_race`, `name`) VALUES
-		(1, 'Tau'),
-		(2, 'Eldars Noirs');";
+		$request[9] = "INSERT INTO `races` (`name`) VALUES
+		('Garde Imperiale'),
+		('Eldars Noirs'),
+		('Tau');";
 
-		$request[10] = "INSERT INTO `ships` (`id_ship`, `name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`, `id_race`) VALUES
-		(1, 'Tigershark', '4x2', 10, 11, 15, 3, 0, '', 1),
-		(2, 'Tigershark AX-1-0', '4x2', 10, 11, 15, 3, 0, '', 1);";
+		$request[10] = "INSERT INTO `ships` (`name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`, `id_race`, `img`) VALUES
+		('Vendetta', '2x1', 5, 10, 20, 2, 0, '', 1, '../../sprites/Imperials/Hunter_imperials.png'),
+		('Thuderbolt', '5x1', 10, 15, 15, 4, 0, '', 1, '../../sprites/Imperials/Cruiser_imperials.png'),
+		('Valkyrie', '7x3', 20, 25, 10, 8, 2, '', 1, '../../sprites/Imperials/Heavy_imperials.png'),
+		('Hemlock Wraithfighter', '2x1', 5, 10, 20, 2, 0, '', 2, '../../sprites/Eldars/HUnter_eldars.png'),
+		('Aurora Class', '5x1', 10, 15, 15, 4, 0, '', 2, '../../sprites/Eldars/Cruiser_eldars.png'),
+		('Void Stalker', '7x3', 20, 25, 10, 8, 2, '', 2, '../../sprites/Eldars/Heavy_eldars.png'),
+		('Barracuda', '2x1', 5, 10, 20, 2, 0, '', 3, '../../sprites/Tau/Hunter_tau.png'),
+		('Tigershark', '5x1', 10, 15, 15, 4, 0, '', 3, '../../sprites/Tau/Cruiser_tau.png'),
+		('Manta', '7x3', 20, 25, 10, 8, 2, '', 3, '../../sprites/Tau/Heavy_tau.png');";
+
+		$request[11] = "INSERT INTO `weapons` (`name`, `pp`, `srange`, `mrange`, `lrange`, `bonus`, `effect`) VALUES
+		('Batterie laser de flancs', 0, '1-10', '11-20', '21-30', '', 'spray'),
+		('Lance navale', 0, '1-30', '31-60', '61-90', '', 'ray'),
+		('Lance navale lourde', 3, '1-30', '31-60', '61-90', 'pierce', 'ray'),
+		('Mitrailleuses super lourdes de proximité', 5, '1-3', '4-7', '8-10', '', 'close'),
+		('Macro canon', 0, '1-10', '11-20', '21-30', 'explode', 'ray');";
 
 		return ($request);
 	}

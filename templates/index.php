@@ -53,7 +53,7 @@
 				<form action="index.php?action=resume" method="POST">
 					<input type="submit" value="Reprendre la partie"/>
 				</form>'
-			;				
+			;
 		}
 	?>
 </body>
