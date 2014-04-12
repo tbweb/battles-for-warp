@@ -17,9 +17,9 @@ class Database
 			$this->_database = $_SESSION['db_name'];
 			if ($this::$verbose === TRUE)
 			{
-				print($_SESSION['mamp_login']);
-	// 			print($_SESSION['mamp_pwd']);
-				print($_SESSION['db_name']);
+				print("Login DB : " . $_SESSION['mamp_login'] . "<br>");
+	// 			print($_SESSION['mamp_pwd'] . "<br>");
+				print("DB Name : " . $_SESSION['db_name'] . "<br>");
 			}
 		}
 	}
