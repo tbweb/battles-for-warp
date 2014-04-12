@@ -1,5 +1,5 @@
 <?php
-abstract class Obstacle extends Solid{
+class Obstacle extends Solid{
 	
 }
 ?>
