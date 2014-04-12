@@ -30,7 +30,7 @@
 		  FOREIGN KEY (`id_race`) REFERENCES races(`id_race`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$request[5] = "INSERT INTO `ships` (`id_ship`, `name`, `size`, `pc`, `pm`, `speed`, `manoeuvre`, `shield`, `bonus`, `id_race`) VALUES
+		$request[5] = "INSERT INTO `ships` (`id_ship`, `name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`, `id_race`) VALUES
 		(1, 'Tigershark', '4x2', 10, 11, 15, 3, 0, '', 1),
 		(2, 'Tigershark AX-1-0', '4x2', 10, 11, 15, 3, 0, '', 1);";
 
