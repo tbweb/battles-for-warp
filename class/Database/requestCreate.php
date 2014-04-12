@@ -51,7 +51,7 @@
 		  `id_player` int(11) unsigned NOT NULL,
 		  `id_ship` int(11) unsigned NOT NULL,
 		  `ship_name` varchar(50) NOT NULL,
-		  `way` char unsigned NOT NULL,
+		  `way` char NOT NULL,
 		  `x` int(11) unsigned NOT NULL,
 		  `y` int(11) unsigned NOT NULL,
 		  `pc` int(11) unsigned NOT NULL,
@@ -71,7 +71,6 @@
 		  FOREIGN KEY (`id_ship`) REFERENCES ships(`id_ship`),
 		  FOREIGN KEY (`id_weapon`) REFERENCES weapons(`id_weapon`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-		return ($request);
 
 		$request[9] = "INSERT INTO `races` (`id_race`, `name`) VALUES
 		(1, 'Tau'),
@@ -80,5 +79,7 @@
 		$request[10] = "INSERT INTO `ships` (`id_ship`, `name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`, `id_race`) VALUES
 		(1, 'Tigershark', '4x2', 10, 11, 15, 3, 0, '', 1),
 		(2, 'Tigershark AX-1-0', '4x2', 10, 11, 15, 3, 0, '', 1);";
+
+		return ($request);
 	}
 ?>

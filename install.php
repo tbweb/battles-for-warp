@@ -27,7 +27,7 @@
 				{
 					if (!mysqli_query($bdd, $elem))
 					{
-						$error .= "Error creating table: ".$elem.mysqli_error($bdd)."<br><a href='install.php'>Page de connexion</a>";
+						$error .= "Error creating table: ".$elem.mysqli_error($bdd)."<br>";
 						++$i;
 						if ($i == 8)
 						{
@@ -40,7 +40,7 @@
 				}
 			}
 			if ($error)
-				print ($error);
+				print($error . "<a href='install.php'>Page de connexion</a>");
 			else
 			{
 				echo "Database created<br>";
