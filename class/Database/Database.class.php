@@ -10,14 +10,17 @@ class Database
 
 	public function __construct()
 	{
-		if (!empty($_SESSION['mamp_login']) && !empty($_SESSION['mamp_pwd']) && $this::$verbose === TRUE)
+		if (!empty($_SESSION['mamp_login']) && !empty($_SESSION['mamp_pwd'])  && !empty($_SESSION['db_name']))
 		{
-			print($_SESSION['mamp_login']);
-// 			print($_SESSION['mamp_pwd']);
-			print($_SESSION['db_name']);
 			$this->_login = $_SESSION['mamp_login'];
 			$this->_password = $_SESSION['mamp_pwd'];
 			$this->_database = $_SESSION['db_name'];
+			if ($this::$verbose === TRUE)
+			{
+				print($_SESSION['mamp_login']);
+	// 			print($_SESSION['mamp_pwd']);
+				print($_SESSION['db_name']);
+			}
 		}
 	}
 
@@ -35,7 +38,6 @@ class Database
 		if (mysqli_select_db($mysqlConnect, $this->_database))
 		{
 			$this->_db = $mysqlConnect;
-			print_r($mysqlConnect);
 			return ($mysqlConnect);
 		}
 		else
@@ -52,7 +54,6 @@ class Database
 
 	public function getContentInDb($query)
 	{
-		print($query);
 		$content = array();
 		if ($db_conn = $this->_db)
 		{
