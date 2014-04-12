@@ -50,6 +50,7 @@
 		$request[8] = "CREATE TABLE `games` (
 		  `id_game` int(11) unsigned NOT NULL AUTO_INCREMENT,
 		  `name` varchar(50) NOT NULL,
+		  `end_game` tinyint(1) NOT NULL DEFAULT false,
 		  PRIMARY KEY (`id_game`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 

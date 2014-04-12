@@ -6,6 +6,7 @@ class Game
 {
 	private $_id_game;
 	private $_players = array();
+	private $_endGame = FALSE;
 	private $_informations;
 	public static $verbose = FALSE;
 	
@@ -37,7 +38,14 @@ class Game
 	public function getPlayers() {
 		return $this->_players;
 	}
-	
-	
+
+	public function getEndgame() {
+		return $this->_endGame;
+	}
+
+	public function setEndgame($_endGame) {
+		$this->_endGame = $_endGame;
+		return $this;
+	}	
 }
 ?>

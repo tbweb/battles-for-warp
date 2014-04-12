@@ -35,22 +35,26 @@
 		</div>
 		<input type="submit" value="Jouer"/>
 	</form>
-	<h2>Partie en cours</h2>
 	<?php
-		$formatName = "Name : %s <br>";
-		$formatRace = "Race : %s <br>";
-		$i = 1;
-		foreach ($game->getPlayers() as $player)
+		if ($game)
 		{
-			print("<h3>Player $i</h3>");
-			printf($formatName, $player->getName());
-			printf($formatRace, $player->getRace());
-			$i++;
+			echo '<h2>Partie en cours</h2>';
+			$formatName = "Name : %s <br>";
+			$formatRace = "Race : %s <br>";
+			$i = 1;
+			foreach ($game->getPlayers() as $player)
+			{
+				print("<h3>Player $i</h3>");
+				printf($formatName, $player->getName());
+				printf($formatRace, $player->getRace());
+				$i++;
+			}
+			echo  '
+				<form action="index.php?action=resume" method="POST">
+					<input type="submit" value="Reprendre la partie"/>
+				</form>'
+			;				
 		}
-		
 	?>
-	<form action="index.php?action=resume" method="POST">
-		<input type="submit" value="Reprendre la partie"/>
-	</form>
 </body>
 </html>
