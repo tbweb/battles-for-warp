@@ -20,15 +20,22 @@
 			echo "Server connected<br>";
 			$request = createDb();
 			$error = NULL;
+			$i = 0;
 			foreach ($request as $elem)
 			{
 				if ($elem)
 				{
 					if (!mysqli_query($bdd, $elem))
 					{
-						header('location: index.php');
 						$error .= "Error creating table: ".$elem.mysqli_error($bdd)."<br><a href='install.php'>Page de connexion</a>";
-						break ;
+						++$i;
+						if ($i == 8)
+						{
+							$error = NULL;
+							break ;
+						}
+						else if ($i > 8)
+							break ;
 					}
 				}
 			}
