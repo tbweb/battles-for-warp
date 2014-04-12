@@ -8,6 +8,13 @@ class Database
 	private	$_database;
 	public static $verbose = FALSE;
 
+	public static function doc() {
+		$file = "No documentation for this class.";
+		if (file_exists("./Database.doc.txt"))
+			$file = file_get_contents("./Database.doc.txt");
+		return ($file);
+	}
+
 	public function __construct()
 	{
 		if (!empty($_SESSION['mamp_login']) && !empty($_SESSION['mamp_pwd'])  && !empty($_SESSION['db_name']))
@@ -46,7 +53,7 @@ class Database
 			return (NULL);
 		}
 	}
-	
+
 	public function close_db()
 	{
 		mysqli_close($this->_db);
@@ -65,10 +72,10 @@ class Database
 		}
 		return ($content);
 	}
-	
+
 	public function getDb() {
 		return $this->_db;
 	}
-	
+
 }
 ?>

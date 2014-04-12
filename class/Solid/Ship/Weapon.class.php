@@ -6,6 +6,13 @@ abstract class Weapon {
 	private int			$_boost = 0;
 	private Area 		$_zone;
 
+	public static function doc() {
+		$file = "No documentation for this class.";
+		if (file_exists("./Weapon.doc.txt"))
+			$file = file_get_contents("./Weapon.doc.txt");
+		return ($file);
+	}
+
 	public function add_scope($dice, $dist)
 	{
 		$this->$_zone->add_scope($dice, $dist);

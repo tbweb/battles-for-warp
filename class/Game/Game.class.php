@@ -8,7 +8,14 @@ class Game
 	private $_players = array();
 	private $_endGame = FALSE;
 	public static $verbose = FALSE;
-	
+
+	public static function doc() {
+		$file = "No documentation for this class.";
+		if (file_exists("./Game.doc.txt"))
+			$file = file_get_contents("./Game.doc.txt");
+		return ($file);
+	}
+
 	public function __construct($players)
 	{
 		$this->_players = $players;
@@ -38,6 +45,5 @@ class Game
 		$this->_id_game = $id_game;
 		return $this;
 	}
-		
 }
 ?>

@@ -5,6 +5,13 @@ class Motor{
 	private int		$_manover = 5;
 	private boolean	$_manovering = False;
 
+	public static function doc() {
+		$file = "No documentation for this class.";
+		if (file_exists("./Motor.doc.txt"))
+			$file = file_get_contents("./Motor.doc.txt");
+		return ($file);
+	}
+
 	public function set_speed($s)		{$this->_speed = $s;}
 	public function set_manover($m)		{$this->_manover = $m;}
 	public function set_manovering($m)	{$this->_manovering = $m;}

@@ -7,5 +7,12 @@ abstract class Ship extends Solid{
 	protected Motor			$_motor;
 	protected Shield		$_shield;
 	protected int			$_pp = 0;
+
+	public static function doc() {
+		$file = "No documentation for this class.";
+		if (file_exists("./Ship.doc.txt"))
+			$file = file_get_contents("./Ship.doc.txt");
+		return ($file);
+	}
 }
 ?>
