@@ -1,3 +1,6 @@
 class Obstacle
 
 The abstract representation of every obstacle
+$sxy[0] = size(5-15)
+$sxy[1] = position x (largeur)(10, 140);
+$sxy[2] = position y (hauteur)(10, 90);

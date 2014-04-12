@@ -1,7 +1,9 @@
 <?php
 class Physics{
-	private $_pos = new Position();
-	private $_life;
+	private		$_pos = new Position();
+	private int	$_w;
+	private int	$_h;
+	private		$_life;
 
 	public static function doc() {
 		$file = "No documentation for this class.";

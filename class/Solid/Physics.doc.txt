@@ -1,7 +1,10 @@
 class Physics
 
--_pos	:	the Position of the physical part of the object
--_life	:	the life of the physical part of the object
+The representation of the physical part of the object
+-_pos	:	it's Position
+-_w		:	it's width
+-_h		:	it's height
+-_life	:	it's life
 
 
 getters & setters :
