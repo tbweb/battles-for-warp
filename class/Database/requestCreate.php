@@ -22,6 +22,7 @@
 		  `shield` int(11) NOT NULL,
 		  `bonus` int(11) NOT NULL,
 		  `id_race` int(11) unsigned NOT NULL,
+		  `img` varchar(255) NOT NULL,
 		  PRIMARY KEY (`id_ship`),
 		  FOREIGN KEY (`id_race`) REFERENCES races(`id_race`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
@@ -42,7 +43,7 @@
 		$request[6] = "CREATE TABLE `games` (
 		  `id_game` int(11) unsigned NOT NULL AUTO_INCREMENT,
 		  `name` varchar(50) NOT NULL,
-		  `end_game` tinyint(1) NOT NULL DEFAULT false,
+		  `end_game` boolean NOT NULL DEFAULT false,
 		  PRIMARY KEY (`id_game`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
@@ -58,6 +59,7 @@
 		  `pc` int(11) unsigned NOT NULL,
 		  `shield` int(11) unsigned NOT NULL,
 		  `inertia` int(11) unsigned NOT NULL,
+		  `played` boolean NOT NULL DEFAULT false,
 		  PRIMARY KEY (`id_playship`),
 		  FOREIGN KEY (`id_game`) REFERENCES games(`id_game`),
 		  FOREIGN KEY (`id_player`) REFERENCES players(`id_player`),
