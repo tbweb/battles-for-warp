@@ -45,6 +45,7 @@
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 		$request[9] = "CREATE TABLE `playship` (
 		  `id_playship` int(11) unsigned NOT NULL AUTO_INCREMENT,
+		  `id_game` int(11) unsigned NOT NULL,
 		  `id_player` int(11) unsigned NOT NULL,
 		  `id_ship` int(11) unsigned NOT NULL,
 		  `ship_name` varchar(50) NOT NULL,
@@ -52,6 +53,11 @@
 		  `shield` int(11) unsigned NOT NULL,
 		  `inertia` int(11) unsigned NOT NULL,
 		  PRIMARY KEY (`id_playship`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+		$request[10] = "CREATE TABLE `game` (
+		  `id_game` int(11) unsigned NOT NULL AUTO_INCREMENT,
+		  `name` varchar(50) NOT NULL,
+		  PRIMARY KEY (`id_game`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 		return ($request);
 	}

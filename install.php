@@ -5,9 +5,9 @@
 	require_once 'class/Database/Database.class.php';
 	require_once 'class/Database/requestCreate.php';
 	$db = new Database();
-	
+
 	if (empty($_POST['db_name']) || empty($_POST['login'])
-   		|| empty($_POST['pwd']) || empty($_POST['submit']))
+		|| empty($_POST['pwd']) || empty($_POST['submit']))
 	{
 		include 'templates/install.html';
 	}
