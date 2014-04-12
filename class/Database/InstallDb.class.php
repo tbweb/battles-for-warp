@@ -21,22 +21,15 @@ class Database
 		}
 	}
 
-	public function connect_mysql()
-	{
-		if ($mysql_connect = mysqli_connect('phpmyadmin.local.42.fr', $this->_login, $this->_password))
-		{
-			return ($mysql_connect);
-		}
-	}
-
 	public function	connect_db()
 	{
-		$mysqlConnect = $this->connect_mysql();
-		if (mysqli_select_db($mysqlConnect, $this->_database))
+		$this->_login;
+		$this->_password;
+		$this->_database;
+		if ($db = mysqli_connect('phpmyadmin.local.42.fr', $this->_login, $this->_password, $this->_database))
 		{
-			$this->_db = $mysqlConnect;
-			print_r($mysqlConnect);
-			return ($mysqlConnect);
+			$this->_db = $db;
+			return ($db);
 		}
 		else
 		{

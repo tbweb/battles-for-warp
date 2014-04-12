@@ -3,9 +3,9 @@
 
 	require_once 'class/Tools/Session.class.php';
 	require_once 'class/Game/Game.class.php';
-	require_once 'class/Tools/Database.class.php';
+	require_once 'class/Database/Database.class.php';
 
-	Database::$verbose = FALSE;
+	Database::$verbose = TRUE;
 	$session = new Session();
 	$db = new Database();
 	$game = $session->getGameInSession();
@@ -21,14 +21,11 @@
 	}
 	else
 		$session->setGameInSession($game);
-	if ($db_conn = $db->connect_db())
-	{
-		$query = "SELECT name FROM races";
-		$res = mysqli_query($db_conn, $query);
-		while ($req = mysqli_fetch_assoc($res))
-			$tabRaces[] = $req;
-	}
-	mysqli_close($db_conn);
+	$query = "SELECT name FROM races";
+	$db->connect_db();
+	$tabRaces = $db->getContentInDb($query);
+	print_r($tabRaces);
+	$db->close_db();
 ?>
 <html>
 <head>
@@ -47,16 +44,17 @@
 		Race player 1 :
 		<select name="racePlayer1">
 		<?php
-			foreach ($tabRaces as $races)
-				echo "<option value='".$races['name']."'>".$races['name']."</option>";
+			print_r($tabRaces);
+			foreach ($tabRaces as $race)
+				echo "<option value='".$race[0]['name']."'>".$race['name']."</option>";
 		?>
 		</select><br>
 		Name player 2 : <input type="text" name="player2" value=""/><br>
 		Race player 2 :
 		<select name="racePlayer2">
 		<?php
-			foreach ($tabRaces as $races)
-				echo "<option value='".$races['name']."'>".$races['name']."</option>";
+			foreach ($tabRaces as $race)
+				echo "<option value='".$race['name']."'>".$race['name']."</option>";
 		?>
 		</select><br>
 		<input type="submit" value="Send"/>
