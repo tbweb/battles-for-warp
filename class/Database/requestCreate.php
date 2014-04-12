@@ -59,6 +59,7 @@
 		  `pc` int(11) unsigned NOT NULL,
 		  `shield` int(11) unsigned NOT NULL,
 		  `inertia` int(11) unsigned NOT NULL,
+		  `played` boolean NOT NULL DEFAULT false,
 		  PRIMARY KEY (`id_playship`),
 		  FOREIGN KEY (`id_game`) REFERENCES games(`id_game`),
 		  FOREIGN KEY (`id_player`) REFERENCES players(`id_player`),
