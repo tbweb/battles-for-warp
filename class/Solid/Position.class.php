@@ -11,13 +11,19 @@ class Position {
 		return ($file);
 	}
 
-	public function get_x()		{ return $this->_x; }
-	public function set_x($x)	{ $this->_x = $x; }
+	public function get_x()			{ return $this->_x; }
+	public function set_x($x)		{ $this->_x = $x; }
 
-	public function get_y()		{ return $this->_y; }
-	public function set_y($y)	{ $this->_y = $y; }
+	public function get_y()			{ return $this->_y; }
+	public function set_y($y)		{ $this->_y = $y; }
 
-	public function get_dir()	{ return $this->_dir; }
-	public function set_dir($r)	{ $this->_dir = $r; }
+	public function get_dir()		{ return $this->_dir; }
+	public function set_dir($r)		{ $this->_dir = $r; }
+
+	public function __construct (int $x, int $y)
+	{
+		$this->_x = $x;
+		$this->_y = $y;
+	}
 }
 ?>
