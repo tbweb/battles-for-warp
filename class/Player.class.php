@@ -1,26 +1,48 @@
 <?php
-class Player{
-	private $name = "";
-	private $race = "";
+class Player {
+	private $_id_player;
+	private $_name = "";
+	private $_pwdCrypt = "";
+	private $_race = "";
+	private $_id_game;
 
-	public function __construct($name, $race)
+	public function __construct($name, $race, $pwdCrypt)
 	{
-		$this->name = $name;
-		$this->race = $race;
+		$this->_name = $name;
+		$this->_pwdCrypt = hash("wirlpool", $pwdCrypt);
+		$this->_race = $race;
 	}
 	public function getName() {
-		return $this->name;
+		return $this->_name;
 	}
 	public function setName($name) {
-		$this->name = $name;
+		$this->_name = $name;
 		return $this;
 	}
 	public function getRace() {
-		return $this->race;
+		return $this->_race;
 	}
 	public function setRace($race) {
-		$this->race = $race;
+		$this->_race = $race;
 		return $this;
 	}
+	public function getIdPlayer() {
+		return $this->_id_player;
+	}
+	public function getIdGame() {
+		return $this->_id_game;
+	}
+	public function setIdGame($id_game) {
+		$this->_id_game = $id_game;
+		return $this;
+	}
+	public function getPwdcrypt() {
+		return $this->_pwdCrypt;
+	}
+	public function setPwdcrypt($pwdCrypt) {
+		$this->_pwdCrypt = $pwdCrypt;
+		return $this;
+	}
+	
 }
 ?>
