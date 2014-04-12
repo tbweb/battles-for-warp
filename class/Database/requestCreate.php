@@ -21,10 +21,10 @@
 		  `move` int(11) NOT NULL,
 		  `shield` int(11) NOT NULL,
 		  `bonus` int(11) NOT NULL,
-		  `id_race` int(11) unsigned NOT NULL,
-		  `img` varchar(255) NOT NULL,
 		  `id_weapon1` int(11) unsigned NOT NULL,
 		  `id_weapon2` int(11) unsigned,
+		  `id_race` int(11) unsigned NOT NULL,
+		  `img` varchar(255) NOT NULL,
 		  PRIMARY KEY (`id_ship`),
 		  FOREIGN KEY (`id_race`) REFERENCES races(`id_race`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
@@ -85,16 +85,16 @@
 		('Eldars Noirs'),
 		('Tau');";
 
-		$request[9] = "INSERT INTO `ships` (`name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`, `id_race`, `img`) VALUES
-		('Vendetta', '2x1', 5, 10, 20, 2, 0, '', 1, '../../sprites/Imperials/Hunter_imperials.png'),
-		('Thuderbolt', '5x1', 10, 15, 15, 4, 0, '', 1, '../../sprites/Imperials/Cruiser_imperials.png'),
-		('Valkyrie', '7x3', 20, 25, 10, 8, 2, '', 1, '../../sprites/Imperials/Heavy_imperials.png'),
-		('Hemlock Wraithfighter', '2x1', 5, 10, 20, 2, 0, '', 2, '../../sprites/Eldars/HUnter_eldars.png'),
-		('Aurora Class', '5x1', 10, 15, 15, 4, 0, '', 2, '../../sprites/Eldars/Cruiser_eldars.png'),
-		('Void Stalker', '7x3', 20, 25, 10, 8, 2, '', 2, '../../sprites/Eldars/Heavy_eldars.png'),
-		('Barracuda', '2x1', 5, 10, 20, 2, 0, '', 3, '../../sprites/Tau/Hunter_tau.png'),
-		('Tigershark', '5x1', 10, 15, 15, 4, 0, '', 3, '../../sprites/Tau/Cruiser_tau.png'),
-		('Manta', '7x3', 20, 25, 10, 8, 2, '', 3, '../../sprites/Tau/Heavy_tau.png');";
+		$request[9] = "INSERT INTO `ships` (`name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`,`id_weapon1`, `id_weapon2`, `id_race`, `img`) VALUES
+		('Vendetta', '2x1', 5, 10, 20, 2, 0, '', 2, 0,  1, '../../sprites/Imperials/Hunter_imperials.png'),
+		('Thuderbolt', '5x1', 10, 15, 15, 4, 0, '', 3, 0, 1, '../../sprites/Imperials/Cruiser_imperials.png'),
+		('Valkyrie', '7x3', 20, 25, 10, 8, 2, '', 4, 3, 1, '../../sprites/Imperials/Heavy_imperials.png'),
+		('Hemlock Wraithfighter', '2x1', 5, 10, 20, 2, 2, '', 2, 0, 2, '../../sprites/Eldars/HUnter_eldars.png'),
+		('Aurora Class', '5x1', 10, 15, 15, 4, 0, '', 3, 0, 2, '../../sprites/Eldars/Cruiser_eldars.png'),
+		('Void Stalker', '7x3', 20, 25, 10, 8, 2, '', 5, 1,  2, '../../sprites/Eldars/Heavy_eldars.png'),
+		('Barracuda', '2x1', 5, 10, 20, 2, 0, '', 1, 0,  3, '../../sprites/Tau/Hunter_tau.png'),
+		('Tigershark', '5x1', 10, 15, 15, 4, 0, '', 2, 2, 3, '../../sprites/Tau/Cruiser_tau.png'),
+		('Manta', '7x3', 20, 25, 10, 8, 2, '', 4, 1, 3, '../../sprites/Tau/Heavy_tau.png');";
 
 		$request[10] = "INSERT INTO `weapons` (`name`, `pp`, `srange`, `mrange`, `lrange`, `bonus`, `effect`) VALUES
 		('Batterie laser de flancs', 0, '1-10', '11-20', '21-30', '', 'spray'),
