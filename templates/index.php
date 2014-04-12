@@ -25,7 +25,8 @@
 			{
 				print('<div class="player-info" style="float: left; margin-right: 15px;">');
 				print("<h3>Player $i</h3>");
-				print('Name : <input type="text" name="player'.$i.'" value=""/><br>');
+				print('Nom : <input type="text" name="player'.$i.'" value=""/><br>');
+				print('Mot de passe : <input type="password" name="pwdPlayer'.$i.'" value=""/><br>');
 				print('Race : <select name="racePlayer'.$i.'">');
 				print($option);
 				print("</select></div>");
@@ -38,7 +39,8 @@
 	<?php
 		if ($game)
 		{
-			echo '<h2>Partie en cours</h2>';
+			$gameId = $game->getIdGame();
+			echo "<h2>Partie en cours - numero $gameId</h2>";
 			$formatName = "Name : %s <br>";
 			$formatRace = "Race : %s <br>";
 			$i = 1;

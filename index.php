@@ -16,22 +16,22 @@
 	}
 	else if (!empty($_GET['action']) && $_GET['action'] == "new")
 	{
-		if (!empty($_POST['player1']) && !empty($_POST['player2']) && !empty($_POST['racePlayer1']) && !empty($_POST['racePlayer2']))
+		if (!empty($_POST['player1']) && !empty($_POST['racePlayer1']) && !empty($_POST['pwdPlayer1'])
+				&& !empty($_POST['player2']) && !empty($_POST['racePlayer2']) && !empty($_POST['pwdPlayer2']))
 		{
 			$i = 1;
 			$arrayPlayers = array();
-			while ($i <= 4 && !empty($_POST['player'.$i]) && !empty($_POST['racePlayer'.$i]))
+			while ($i <= 4 && !empty($_POST['player'.$i]) && !empty($_POST['racePlayer'.$i]) && !empty($_POST['pwdPlayer'.$i]))
 			{
-				$arrayPlayers[] = new Player($_POST['player'.$i], $_POST['racePlayer'.$i]);
+				$arrayPlayers[] = new Player($_POST['player'.$i], $_POST['racePlayer'.$i], $_POST['pwdPlayer'.$i]);
 				$i++;
 			}
-			print_r($arrayPlayers);
 			$game = new Game($arrayPlayers);
-		}
-		if ($game)
-		{
-			$session->setGameInSession($game);
-			header('location: game.php');
+			if ($game)
+			{
+				$session->setGameInSession($game);
+				header('location: game.php');
+			}
 		}
 	}
 	$query = "SELECT name FROM races";
@@ -42,6 +42,11 @@
 	if ($verbose_global)
 	{
 		print_r($game);
+// 		foreach($game->getPlayers() as $player)
+// 		{
+// 			echo $player->getIdGame();
+// 			echo $player->getName();
+// 		}
 	}
 	include "templates/index.php";
 ?>
