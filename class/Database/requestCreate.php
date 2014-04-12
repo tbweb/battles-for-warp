@@ -2,15 +2,19 @@
 	function createDb()
 	{
 		$request[0] = "CREATE DATABASE `" . $_SESSION['db_name'] . "`;";
+
 		$request[1] = "USE `" . $_SESSION['db_name'] . "`;";
+
 		$request[2] = "CREATE TABLE `races` (
 		  `id_race` int(11) unsigned NOT NULL AUTO_INCREMENT,
 		  `name` varchar(50) NOT NULL,
 		  PRIMARY KEY (`id_race`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
 		$request[3] = "INSERT INTO `races` (`id_race`, `name`) VALUES
 		(1, 'Tau'),
 		(2, 'Eldars Noirs');";
+
 		$request[4] = "CREATE TABLE `ships` (
 		  `id_ship` int(11) unsigned NOT NULL AUTO_INCREMENT,
 		  `name` varchar(50) NOT NULL,
@@ -21,28 +25,34 @@
 		  `manoeuvre` int(11) NOT NULL,
 		  `shield` int(11) NOT NULL,
 		  `bonus` int(11) NOT NULL,
-		  `race` int(11) unsigned NOT NULL,
-		  PRIMARY KEY (`id_ship`)
+		  `id_race` int(11) unsigned NOT NULL,
+		  PRIMARY KEY (`id_ship`),
+		  FOREIGN KEY (`id_race`) REFERENCES races(id_race)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-		$request[5] = "INSERT INTO `ships` (`id_ship`, `name`, `size`, `pc`, `pm`, `speed`, `manoeuvre`, `shield`, `bonus`, `race`) VALUES
+
+		$request[5] = "INSERT INTO `ships` (`id_ship`, `name`, `size`, `pc`, `pm`, `speed`, `manoeuvre`, `shield`, `bonus`, `id_race`) VALUES
 		(1, 'Tigershark', '4x2', 10, 11, 15, 3, 0, '', 1),
 		(2, 'Tigershark AX-1-0', '4x2', 10, 11, 15, 3, 0, '', 1);";
+
 		$request[6] = "CREATE TABLE `weapons` (
 		  `id_weapon` int(11) unsigned NOT NULL AUTO_INCREMENT,
 		  `Name` varchar(50) NOT NULL,
 		  `pp` int(11) NOT NULL,
 		  PRIMARY KEY (`id_weapon`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-		$request[7] = "CREATE TABLE `weapship` (
-		  `id_playship` int(11) unsigned NOT NULL,
-		  `id_ship` int(11) unsigned NOT NULL,
-		  `id_weapon` int(11) unsigned NOT NULL
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-		$request[8] = "CREATE TABLE `player` (
+
+		$request[7] = "CREATE TABLE `players` (
 		  `id_player` int(11) unsigned NOT NULL,
 		  `name` varchar(50) NOT NULL,
 		  PRIMARY KEY (`id_player`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
+		$request[8] = "CREATE TABLE `games` (
+		  `id_game` int(11) unsigned NOT NULL AUTO_INCREMENT,
+		  `name` varchar(50) NOT NULL,
+		  PRIMARY KEY (`id_game`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
 		$request[9] = "CREATE TABLE `playship` (
 		  `id_playship` int(11) unsigned NOT NULL AUTO_INCREMENT,
 		  `id_game` int(11) unsigned NOT NULL,
@@ -52,12 +62,19 @@
 		  `pc` int(11) unsigned NOT NULL,
 		  `shield` int(11) unsigned NOT NULL,
 		  `inertia` int(11) unsigned NOT NULL,
-		  PRIMARY KEY (`id_playship`)
+		  PRIMARY KEY (`id_playship`),
+		  FOREIGN KEY (`id_game`) REFERENCES games(`id_game`),
+		  FOREIGN KEY (`id_player`) REFERENCES players(`id_player`),
+		  FOREIGN KEY (`id_ship`) REFERENCES ships(`id_ship`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-		$request[10] = "CREATE TABLE `game` (
-		  `id_game` int(11) unsigned NOT NULL AUTO_INCREMENT,
-		  `name` varchar(50) NOT NULL,
-		  PRIMARY KEY (`id_game`)
+
+		$request[10] = "CREATE TABLE `weapship` (
+		  `id_playship` int(11) unsigned NOT NULL,
+		  `id_ship` int(11) unsigned NOT NULL,
+		  `id_weapon` int(11) unsigned NOT NULL,
+		  FOREIGN KEY (`id_playship`) REFERENCES playship(`id_playship`),
+		  FOREIGN KEY (`id_ship`) REFERENCES ships(`id_ship`),
+		  FOREIGN KEY (`id_weapon`) REFERENCES weapons(`id_weapon`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 		return ($request);
 	}
