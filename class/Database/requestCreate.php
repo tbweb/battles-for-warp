@@ -23,6 +23,8 @@
 		  `bonus` int(11) NOT NULL,
 		  `id_race` int(11) unsigned NOT NULL,
 		  `img` varchar(255) NOT NULL,
+		  `id_weapon1` int(11) unsigned NOT NULL,
+		  `id_weapon2` int(11) unsigned,
 		  PRIMARY KEY (`id_ship`),
 		  FOREIGN KEY (`id_race`) REFERENCES races(`id_race`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
@@ -42,7 +44,14 @@
 		$request[5] = "CREATE TABLE `players` (
 		  `id_player` int(11) unsigned NOT NULL,
 		  `name` varchar(50) NOT NULL,
-		  PRIMARY KEY (`id_player`)
+		  `pwd` varchar(255) NOT NULL,
+		  `email` varchar(255) NOT NULL,
+		  `img` varchar(255) NOT NULL,
+		  `victories` int(11) unsigned NOT NULL,
+		  `defeats` int(11) unsigned NOT NULL,
+		  `last_game_time` varchar(255) NOT NULL,
+		  PRIMARY KEY (`id_player`),
+		  UNIQUE KEY (`name`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 		$request[6] = "CREATE TABLE `games` (
@@ -71,21 +80,12 @@
 		  FOREIGN KEY (`id_ship`) REFERENCES ships(`id_ship`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-		$request[8] = "CREATE TABLE `weapship` (
-		  `id_playship` int(11) unsigned NOT NULL,
-		  `id_ship` int(11) unsigned NOT NULL,
-		  `id_weapon` int(11) unsigned NOT NULL,
-		  FOREIGN KEY (`id_playship`) REFERENCES playship(`id_playship`),
-		  FOREIGN KEY (`id_ship`) REFERENCES ships(`id_ship`),
-		  FOREIGN KEY (`id_weapon`) REFERENCES weapons(`id_weapon`)
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-
-		$request[9] = "INSERT INTO `races` (`name`) VALUES
+		$request[8] = "INSERT INTO `races` (`name`) VALUES
 		('Garde Imperiale'),
 		('Eldars Noirs'),
 		('Tau');";
 
-		$request[10] = "INSERT INTO `ships` (`name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`, `id_race`, `img`) VALUES
+		$request[9] = "INSERT INTO `ships` (`name`, `size`, `pc`, `pm`, `speed`, `move`, `shield`, `bonus`, `id_race`, `img`) VALUES
 		('Vendetta', '2x1', 5, 10, 20, 2, 0, '', 1, '../../sprites/Imperials/Hunter_imperials.png'),
 		('Thuderbolt', '5x1', 10, 15, 15, 4, 0, '', 1, '../../sprites/Imperials/Cruiser_imperials.png'),
 		('Valkyrie', '7x3', 20, 25, 10, 8, 2, '', 1, '../../sprites/Imperials/Heavy_imperials.png'),
@@ -96,7 +96,7 @@
 		('Tigershark', '5x1', 10, 15, 15, 4, 0, '', 3, '../../sprites/Tau/Cruiser_tau.png'),
 		('Manta', '7x3', 20, 25, 10, 8, 2, '', 3, '../../sprites/Tau/Heavy_tau.png');";
 
-		$request[11] = "INSERT INTO `weapons` (`name`, `pp`, `srange`, `mrange`, `lrange`, `bonus`, `effect`) VALUES
+		$request[10] = "INSERT INTO `weapons` (`name`, `pp`, `srange`, `mrange`, `lrange`, `bonus`, `effect`) VALUES
 		('Batterie laser de flancs', 0, '1-10', '11-20', '21-30', '', 'spray'),
 		('Lance navale', 0, '1-30', '31-60', '61-90', '', 'ray'),
 		('Lance navale lourde', 3, '1-30', '31-60', '61-90', 'pierce', 'ray'),
