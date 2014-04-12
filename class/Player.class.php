@@ -9,7 +9,7 @@ class Player {
 	public function __construct($name, $race, $pwdCrypt)
 	{
 		$this->_name = $name;
-		$this->_pwdCrypt = hash("wirlpool", $pwdCrypt);
+		$this->_pwdCrypt = hash("whirlpool", $pwdCrypt);
 		$this->_race = $race;
 	}
 	public function getName() {
