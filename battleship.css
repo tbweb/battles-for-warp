@@ -87,7 +87,7 @@ tr td:first-child {
   height: 901px;
   
   background-repeat: repeat repeat;  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;  
+  border-radius: 0px 0px 0px 0px;
   border-top-width: 13px;
   border-right-width: 13px;
   border-bottom-width: 13px;
@@ -107,24 +107,24 @@ tr td:first-child {
 
 #action {  
   background-color: #060600;  -webkit-border-radius: 26px 22px 26px 22px;
-  border-radius: 26px 22px 26px 22px;  
-  margin-top: 8px;  
-  margin-right: auto;  
-  margin-bottom: 0px;  
-  margin-left: 0px;  
-  width: 100%;  
+  border-radius: 26px 22px 26px 22px;
+  margin-top: 8px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  width: 100%;
   height: auto;
 }
 
 #description {  
   background-color: #060600;  -webkit-border-radius: 26px 22px 26px 22px;
-  border-radius: 26px 22px 26px 22px;  
-  margin-top: 9px;  
-  margin-right: 0px;  
-  margin-bottom: 0px;  
-  margin-left: 0px;  
-  display: inline-block;  
-  height: auto;  
+  border-radius: 26px 22px 26px 22px;
+  margin-top: 9px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  display: inline-block;
+  height: auto;
   width: 100%;
 }
 

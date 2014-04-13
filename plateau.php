@@ -1,7 +1,11 @@
 <?php
+include "class/Tools/Session.class.php";
+include "class/Player.class.php";
+$sess = new Session();
+$game = $sess->getGameInSession();
 $ships = array();
-for ($i=0; $i < 10; $i++) { 
-	$ships[] = "yey";
+foreach ($game->getPlayers() as $key => $player) {
+	$ships[] = $player->getPlayship();
 }
 print '<table style="width: 100%; height: 100%;" border="1" cellpadding="0" cellspacing="0">';
 $y = 0;

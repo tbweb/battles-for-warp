@@ -15,7 +15,7 @@ class Ship extends Solid
 	private				$_bonus = '';
 	private				$_weapons = array();
 	private				$_id_race = 2;
-	private				$image = '../../sprites/Eldars/Cruiser_eldars.png';
+	private				$image = 'Eldars/Cruiser_eldars.png';
 
 	public function __construct($id)
 	{
