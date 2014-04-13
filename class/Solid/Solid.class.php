@@ -1,7 +1,7 @@
 <?php
-include 'Physics.class.php';
+
 abstract class Solid{
-	protected Physics $_phy;
+	protected  $_phy;
 
 	public static function doc() {
 		$file = "No documentation for this class.";
@@ -9,6 +9,12 @@ abstract class Solid{
 			$file = file_get_contents("./Solid.doc.txt");
 		return ($file);
 	}
-
+	public function getPhy() {
+		return $this->_phy;
+	}
+	public function setPhy($_phy) {
+		$this->_phy = $_phy;
+		return $this;
+	}
 }
 ?>

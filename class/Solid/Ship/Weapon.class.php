@@ -1,11 +1,22 @@
 <?php
 include 'Area.class.php';
-abstract class Weapon {
-	private int			$_base_charges = 0;
-	private int			$_charges = 0;
-	private int			$_boost = 0;
-	private Area 		$_zone;
+class Weapon
+{
+	private			$_id = 1;
+	private			$_name = 'Lance navale lourde';
+	private			$_pp = 3;
+	private			$_base_charges = 0;
+	private			$_charges = 0;
+	private			$_boost = 0;
+	private 		$_zone;
 
+	public function __construct()
+	{
+		$this->_zone = new Area(0,60);
+		$this->_zone->set_scope(4, 30);
+		$this->_zone->set_scope(5, 60);
+		$this->_zone->set_scope(6, 90);
+	}
 	public static function doc() {
 		$file = "No documentation for this class.";
 		if (file_exists("./Weapon.doc.txt"))
@@ -37,7 +48,7 @@ abstract class Weapon {
 
 	public function in_range($from, $to)
 	{
-		$angle = arcos(($to->get_x()-$from->get_x())/(sqrt(pow($to->get_x()-$from->get_x(), 2)+pow($to->get_y()-$from->get_y(), 2))))
+		$angle = arcos(($to->get_x()-$from->get_x())/(sqrt(pow($to->get_x()-$from->get_x(), 2)+pow($to->get_y()-$from->get_y(), 2))));
 		$angle = 180 * ($angle) / pi();
 		$dist = sqrt(pow($to->get_x() - $from->get_x()) + pow($to->get_y() - $from->get_y()));
 		if ($this->_zone->get_dir() > -1)
