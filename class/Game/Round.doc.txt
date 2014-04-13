@@ -1,3 +1,29 @@
-class Round
+This class handles the distribution of a round, especially concerning the pp.
 
-Represent a round 
+You can declare an instance without any parameters.
+
+Ship		getShip();
+Return the _ship value.
+
+PlayShip	setShip($var);
+Set the _ship variable to the parameter given and return the current instance.
+
+Int			getSpeedPp();
+Return the _speedPp value.
+
+PlayShip	setSpeedPp($var);
+Set the _speedPp variable to the parameter given and return the current instance.
+
+Int			getShieldPp();
+Return the _shieldPp value.
+
+PlayShip	setShieldPp($var);
+Set the _shieldPp variable to the parameter given and return the current instance.
+
+Int			getWeaponPp();
+Return the _weaponPp value.
+
+PlayShip	setId($var);
+Set the _weaponPp variable to the parameter given and return the current instance.
+
+A static variable $verbose can be triggered to TRUE to diplsay some debug infos.

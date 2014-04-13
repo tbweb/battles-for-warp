@@ -1,6 +1,22 @@
-class Game
+This class handles the totality of the game.
 
-Represent the game
--_player1		:	represent a player
--_player2		:	represent a player
--_information	:	info message gave by the game to the user
+An instance must be declared with at least one player.
+
+This class provides the following methods:
+
+Player		getPlayers();
+Return the player's array.
+
+Bool		getEndGame();
+Return TRUE if the game is finished, FALSE either.
+
+Game		setEndGame($bool);
+Set the _endGame variable to the parameter given, and return the current instance.
+
+Int			getIdGame();
+Return the _id_game value.
+
+Game		setIdGame($var);
+Set the _id_game variable to the parameter given, and retun the current instance.
+
+A static variable $verbose can be triggered to TRUE to display some debug infos.
