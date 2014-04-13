@@ -1,3 +1,0 @@
-class People
-
-represent the ABSTRACT people concept
