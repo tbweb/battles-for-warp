@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Awesome Starships Battles II - Acceuil</title>
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" type="text/css" href="/css/index.css">
 	</head>
 	<body>
 		<h1>AWESOME STARSHIPS BATTLES II</h1>
