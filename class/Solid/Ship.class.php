@@ -36,6 +36,11 @@ class Ship extends Solid
 		$this->_phy->setW(1);
 		$this->_phy->setH(5);
 	}
+	
+	public function getFormPp()
+	{
+		print_r("toto");
+	}
 
 	public function getId() {
 		return $this->_id;

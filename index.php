@@ -30,7 +30,7 @@
 			if ($game)
 			{
 				$session->setGameInSession($game);
-				header('location: game.php');
+// 				header('location: game.php');
 			}
 		}
 	}
