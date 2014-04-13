@@ -1,11 +1,9 @@
 <?php
-	session_start();
-
 	require_once 'class/Tools/Session.class.php';
 	require_once 'class/Game/Game.class.php';
 	require_once 'class/Database/Database.class.php';
 	require_once 'class/Solid/Ship.class.php';
-	require_once 'class/Game/PlayShip.class.php';
+
 	$verbose_global = FALSE;
 	if ($verbose_global)
 		Database::$verbose = TRUE;

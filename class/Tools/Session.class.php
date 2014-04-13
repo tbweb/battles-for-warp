@@ -1,6 +1,6 @@
 <?php
 
-require_once 'class/Doc.class.txt';
+require_once 'class/Doc.class.php';
 
 class Session
 {
