@@ -12,9 +12,8 @@ body
 
 h1
 {
-	padding-top:20px;
 	text-align:center;
-	font-color:#555555;
+	padding-top:20px;
 	font-family: "Coalition";
 	color:#EEEEEE;
 	-webkit-user-select: none;
@@ -22,47 +21,113 @@ h1
 
 .connect
 {
+	text-align:center;
 	margin-top:50px;
 	width:100%;
+}
+
+hr
+{
+	border:0;
+	height:2px;
+	background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(58, 33, 84, 255), rgba(0, 0, 0, 0));
+}
+
+#curgame
+{
+	display:table;
+	margin:0 auto;
 	text-align:center;
+	margin-top:150px;
+	color:;
+}
+
+span #title_curgame
+{
+	font-family:"Coalition";
+	color:#EEEEEE;
+	padding-top: 10px;
+}
+
+span #subtitle_curgame
+{
+	font-family:"Coalition";
+	color:#EEEEEE;
+}
+
+span #block_players
+{
+	display:inline-block;
+	margin: 0px 15px 15px 15px;
+	padding: 15px 15px 15px 15px;
+	float:left;
+}
+
+span span
+{
+	font-family:"Coalition";
+	color:#EEEEEE;
+}
+
+span form #resume
+{
+	display:inline-block;
+	margin: 5px;;
+	padding-top:7px;
+	padding-left:7px;
+	font-family: "Coalition";
+	font-size:1.2em;
+	color:#EEEEEE;
+	background-color: transparent;
+}
+
+span form #delete
+{
+	display:inline-block;
+	margin: 5px;
+	padding-top:7px;
+	padding-left:7px;
+	font-family: "Coalition";
+	font-size:1.2em;
+	color:#EEEEEE;
+	background-color: transparent;
 }
 
 div div h3
 {
-	font-color:#555555;
-	font-family: "Coalition";
-	-webkit-user-select: none;
+	font-family:"Coalition";
+	color:#EEEEEE;
+	-webkit-user-select:none;
 }
 
 div form label
 {
-	font-family: "Coalition";
+	font-family:"Coalition";
 	display:inline-block;
-	width: 140px;
+	width:140px;
 }
 
 div form #block_connect
 {
+	display:inline-block;
 	margin: 15px 15px 15px 15px;
 	padding: 10px 10px 10px 10px;
-	display:inline-block;
-	background:#EEEEEE;
-	box-shadow:0px 0px 10px 5px #EEEEEE;
-}
-
-#block_connect h3
-{
-	text-align:center;
+	color:#EEEEEE;
+	background:transparent;
+	-webkit-user-select: none;
 }
 
 div form #play
 {
 	display:block;
 	margin:0 auto;
-	padding-top:6px;
-	padding-left:8px;
+	padding-top:7px;
+	padding-left:7px;
 	width:100px;
 	font-family: "Coalition";
 	font-size:1.2em;
-	background-color: #EEEEEE;
+	color:#EEEEEE;
+	background-color: transparent;
 }
+
+

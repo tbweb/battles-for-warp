@@ -26,6 +26,11 @@ class Session
 			return (unserialize($_SESSION['game']));
 	}
 
+	public function deleteGameInSession()
+	{
+		unset($_SESSION['game']);
+	}
+
 	public function	setGameInSession($game)
 	{
 		$_SESSION['game'] = serialize($game);
