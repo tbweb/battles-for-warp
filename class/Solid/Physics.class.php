@@ -14,5 +14,9 @@ class Physics{
 
 	public function set_pos($p)	{ $this->_pos = $p; }
 	public function get_pos()	{ return $this->_pos; }
+	public function set_w($w)	{ $this->_w = $w; }
+	public function get_w()	{ return $this->_w; }
+	public function set_h($h)	{ $this->_h = $h; }
+	public function get_h()	{ return $this->_h; }
 }
 ?>

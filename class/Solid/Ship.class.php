@@ -1,5 +1,5 @@
 <?php
-class Ship
+class Ship extends Solid
 {
 	private				$_id = 1;
 	private				$_name = "Aurora Class";
