@@ -25,7 +25,7 @@ class Player
 		$this->_name = $name;
 		$this->_pwdCrypt = hash("whirlpool", $pwdCrypt);
 		$this->_race = $race;
-		$this->_playship = new PlayShip($name . " ship", 10, 10);
+		$this->_playship = new Ship($name . " ship", 10, 10);
 	}
 
 	public function getName() {
