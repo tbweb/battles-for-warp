@@ -48,17 +48,17 @@ tr {
   height: 9px;
 }
 tr:first-child {
-  border-top: 1px #fff solid;
+  border-top: 1px #667 solid;
 }
 tr td {
   display: inline-block;
   width: 9px;
   height: 100%;
-  border-right: 1px #fff solid;
-  border-bottom: 1px #fff solid;
+  border-right: 1px #667 solid;
+  border-bottom: 1px #667 solid;
 }
-tr td {
-  border-left: 1px #fff solid;
+tr td:first-child {
+  border-left: 1px #667 solid;
 }
 
 #affichage {  
@@ -83,11 +83,11 @@ tr td {
 
 #fond {  
   display: inline-block;  
-  width: 1500px;
-  height: 1000px;
+  width: 1501px;
+  height: 901px;
   
   background-repeat: repeat repeat;  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;  
+  border-radius: 0px 0px 0px 0px;
   border-top-width: 13px;
   border-right-width: 13px;
   border-bottom-width: 13px;
@@ -100,29 +100,31 @@ tr td {
   border-right-color: #0a0f0a;
   border-bottom-color: #0a0f0a;
   border-left-color: #0a0f0a;
-  background-image: url("./espace.jpg");
+  background-image: url("image/galaxy.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #action {  
   background-color: #060600;  -webkit-border-radius: 26px 22px 26px 22px;
-  border-radius: 26px 22px 26px 22px;  
-  margin-top: 8px;  
-  margin-right: auto;  
-  margin-bottom: 0px;  
-  margin-left: 0px;  
-  width: 100%;  
+  border-radius: 26px 22px 26px 22px;
+  margin-top: 8px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  width: 100%;
   height: auto;
 }
 
 #description {  
   background-color: #060600;  -webkit-border-radius: 26px 22px 26px 22px;
-  border-radius: 26px 22px 26px 22px;  
-  margin-top: 9px;  
-  margin-right: 0px;  
-  margin-bottom: 0px;  
-  margin-left: 0px;  
-  display: inline-block;  
-  height: auto;  
+  border-radius: 26px 22px 26px 22px;
+  margin-top: 9px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  display: inline-block;
+  height: auto;
   width: 100%;
 }
 

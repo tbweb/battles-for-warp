@@ -1,9 +1,15 @@
 <?php
 class Area {
-	private int		$_dir = -1;
-	private array	$_scope;
-	private int		$_angle = 360;
+	private		$_dir;
+	private		$_scope;
+	private		$_angle;
 
+	public function __construct($dir, $angle)
+	{
+		$this->_dir = $dir;
+		$this->_angle = $angle;
+	}
+	
 	public static function doc() {
 		$file = "No documentation for this class.";
 		if (file_exists("./Area.doc.txt"))

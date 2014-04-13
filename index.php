@@ -36,6 +36,11 @@
 			}
 		}
 	}
+	else if ($game && !empty($_GET['action']) && $_GET['action'] == "delete")
+	{
+		$session->deleteGameInSession();
+		header('location: index.php');
+	}
 	$query = "SELECT name FROM races";
 	if (!$db->connect_db())
 		header('location: install.php');

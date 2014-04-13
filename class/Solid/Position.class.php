@@ -20,7 +20,7 @@ class Position {
 	public function getDir()		{ return $this->_dir; }
 	public function setDir($r)		{ $this->_dir = $r; }
 
-	public function __construct (int $x, int $y)
+	public function __construct ($x, $y)
 	{
 		$this->_x = $x;
 		$this->_y = $y;

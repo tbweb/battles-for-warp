@@ -1,24 +1,31 @@
 <?php
+
+require_once 'Solid.class.php';
+require_once 'Ship/Weapon.class.php';
+require_once 'Physics.class.php';
+
 class Ship extends Solid
 {
-	private				$_id = 1;
+	private				$_id;
 	private				$_name = "Aurora Class";
-	private				$_size = "5x1";
 	private				$_pc = 10;
 	private				$_pm = 15;
 	private				$_speed = 15;
 	private				$_move = 4;
 	private				$_shield = 0;
 	private				$_bonus = '';
-	private				$_id_weapon1 = 3;
-	private				$_id_weapon2 = 0;
+	private				$_weapons = array();
 	private				$_id_race = 2;
-	private				$image = '../../sprites/Eldars/Cruiser_eldars.png';
+	private				$image = 'Eldars/Cruiser_eldars.png';
 
 	public function __construct($id)
 	{
-		//if ($id)
-			//request for find elem in database;
+		$this->_id = $id;
+		$this->_weapons = new Weapon();
+		$this->_phy = new Physics();
+		$this->_phy->set_pos(new Position(10, 10));
+		$this->_phy->set_w(1);
+		$this->_phy->set_h(5);
 	}
 
 	public static function doc() {
@@ -90,18 +97,11 @@ class Ship extends Solid
 		$this->_bonus = $_bonus;
 		return $this;
 	}
-	public function getIdWeapon1() {
-		return $this->_id_weapon1;
+	public function getWeapons() {
+		return $this->_weapons;
 	}
-	public function setIdWeapon1($_id_weapon1) {
-		$this->_id_weapon1 = $_id_weapon1;
-		return $this;
-	}
-	public function getIdWeapon2() {
-		return $this->_id_weapon2;
-	}
-	public function setIdWeapon2($_id_weapon2) {
-		$this->_id_weapon2 = $_id_weapon2;
+	public function setWeapons($_weapons) {
+		$this->_weapons = $_weapons;
 		return $this;
 	}
 	public function getIdRace() {

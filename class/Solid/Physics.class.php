@@ -1,8 +1,11 @@
 <?php
+
+require_once 'Position.class.php';
+
 class Physics{
-	private		$_pos = new Position();
-	private int	$_w;
-	private int	$_h;
+	private		$_pos;
+	private 	$_w;
+	private		$_h;
 	private		$_life;
 
 	public static function doc() {
@@ -20,5 +23,13 @@ class Physics{
 
 	public function setH($v)	{ $this->_h = $v; }
 	public function getH()		{ return $this->_h; }
+
+	public function getLife() {
+		return $this->_life;
+	}
+	public function setLife($_life) {
+		$this->_life = $_life;
+		return $this;
+	}
 }
 ?>
