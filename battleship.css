@@ -101,7 +101,7 @@ tr td:first-child {
   border-right-color: #0a0f0a;
   border-bottom-color: #0a0f0a;
   border-left-color: #0a0f0a;
-  background-image: url("image/galaxy.jpg");
+  background-image: url("img/galaxy.jpg");
   background-position: center;
   background-repeat: no-repeat;
 }

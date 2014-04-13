@@ -9,7 +9,7 @@ class Player
 	private $_pwdCrypt = "";
 	private $_race = "";
 	private $_id_game;
-	private $_playship;
+	private $_ships;
 
 	use Doc;
 
@@ -18,7 +18,7 @@ class Player
 		$this->_name = $name;
 		$this->_pwdCrypt = hash("whirlpool", $pwdCrypt);
 		$this->_race = $race;
-		$this->_ship = new Ship($name . " ship");
+		$this->_ships = new Ship($name . " ship");
 	}
 
 	public function getName() {
@@ -60,12 +60,12 @@ class Player
 		$this->_pwdCrypt = $pwdCrypt;
 		return $this;
 	}
-	public function getPlayship() {
-		return $this->_playship;
+	public function getShips() {
+		return $this->_ships;
 	}
-	public function setPlayship($_playship) {
-		$this->_playship = $_playship;
+	public function setShips($_ships) {
+		$this->_ships = $_ships;
 		return $this;
-	}
+	}	
 }
 ?>
