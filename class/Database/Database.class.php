@@ -1,5 +1,7 @@
 <?php
 
+require_once 'class/Doc.class.php';
+
 class Database
 {
 	private $_db = NULL;
@@ -8,12 +10,7 @@ class Database
 	private	$_database;
 	public static $verbose = FALSE;
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Database.doc.txt"))
-			$file = file_get_contents("./Database.doc.txt");
-		return ($file);
-	}
+	use Doc;
 
 	public function __construct()
 	{

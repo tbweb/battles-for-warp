@@ -1,7 +1,7 @@
 <?php
 
-require_once '../Player.class.php';
-require_once '../Doc.class.php';
+require_once 'class/Player.class.php';
+require_once 'class/Doc.class.php';
 
 class Game
 {

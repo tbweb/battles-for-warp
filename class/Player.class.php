@@ -13,13 +13,6 @@ class Player
 
 	use Doc;
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Player.doc.txt"))
-			$file = file_get_contents("./Player.doc.txt");
-		return ($file);
-	}
-
 	public function __construct($name, $race, $pwdCrypt)
 	{
 		$this->_name = $name;

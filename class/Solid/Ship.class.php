@@ -3,6 +3,7 @@
 require_once 'Solid.class.php';
 require_once 'Ship/Weapon.class.php';
 require_once 'Physics.class.php';
+require_once 'class/Doc.class.php';
 
 class Ship extends Solid
 {
@@ -24,6 +25,8 @@ class Ship extends Solid
 	private				$_played = 0;
 	private				$image = 'Eldars/Cruiser_eldars.png';
 
+	use Doc;
+
 	public function __construct($name)
 	{
 		$this->_weapons = new Weapon();
@@ -34,12 +37,6 @@ class Ship extends Solid
 		$this->_phy->set_h(5);
 	}
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Ship.doc.txt"))
-			$file = file_get_contents("./Ship.doc.txt");
-		return ($file);
-	}
 	public function getId() {
 		return $this->_id;
 	}

@@ -1,6 +1,11 @@
 <?php
+
+require_once 'class/Doc.class.php';
+
 class Obstacle extends Solid
 {
+	use Doc;
+
 	function __construct()
 	{
 		$size=$sxy[0]=rand(5, 15);
@@ -12,4 +17,5 @@ class Obstacle extends Solid
 		return $sxy;
 	}
 }
+
 ?>

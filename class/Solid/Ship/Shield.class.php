@@ -1,14 +1,12 @@
 <?php
+
+require_once 'class/Doc.class.php';
+
 class Shield {
 	private int	$_shield = 0;
 	private int	$_boost = 0;
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Shield.doc.txt"))
-			$file = file_get_contents("./Shield.doc.txt");
-		return ($file);
-	}
+	use Doc;
 
 	public function add_boost($pp)
 	{

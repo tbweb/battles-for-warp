@@ -1,16 +1,13 @@
 <?php
 
+require_once 'class/Doc.class.txt';
+
 class Session
 {
 	private $informations;
 	public static $verbose = FALSE;
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Session.doc.txt"))
-			$file = file_get_contents("./Session.doc.txt");
-		return ($file);
-	}
+	use Doc;
 
 	public function __construct()
 	{

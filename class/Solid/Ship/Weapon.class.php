@@ -1,5 +1,8 @@
 <?php
-include 'Area.class.php';
+
+require_once 'Area.class.php';
+require_once 'class/Doc.class.php';
+
 class Weapon
 {
 	private			$_id = 1;
@@ -10,18 +13,14 @@ class Weapon
 	private			$_boost = 0;
 	private 		$_zone;
 
+	use Doc;
+
 	public function __construct()
 	{
 		$this->_zone = new Area(0,60);
 		$this->_zone->set_scope(4, 30);
 		$this->_zone->set_scope(5, 60);
 		$this->_zone->set_scope(6, 90);
-	}
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Weapon.doc.txt"))
-			$file = file_get_contents("./Weapon.doc.txt");
-		return ($file);
 	}
 
 	public function add_scope($dice, $dist)

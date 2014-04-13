@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Doc.class.txt';
+require_once 'class/Doc.class.txt';
 
 Class Round
 {

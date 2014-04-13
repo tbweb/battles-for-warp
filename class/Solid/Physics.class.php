@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Position.class.php';
+require_once 'class/Doc.class.php';
 
 class Physics{
 	private		$_pos;
@@ -8,12 +9,7 @@ class Physics{
 	private		$_h;
 	private		$_life;
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Physics.doc.txt"))
-			$file = file_get_contents("./Physics.doc.txt");
-		return ($file);
-	}
+	use Doc;
 
 	public function setPos($p)	{ $this->_pos = $p; }
 	public function getPos()	{ return $this->_pos; }
@@ -32,4 +28,5 @@ class Physics{
 		return $this;
 	}
 }
+
 ?>

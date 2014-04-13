@@ -1,20 +1,18 @@
 <?php
+
+require_once 'class/Doc.class.php';
+
 class Area {
 	private		$_dir;
 	private		$_scope;
 	private		$_angle;
 
+	use Doc;
+
 	public function __construct($dir, $angle)
 	{
 		$this->_dir = $dir;
 		$this->_angle = $angle;
-	}
-	
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Area.doc.txt"))
-			$file = file_get_contents("./Area.doc.txt");
-		return ($file);
 	}
 
 	public function set_scope($dice, $dist)	{ $this->_scope[$dice] = $dist; }
@@ -22,4 +20,5 @@ class Area {
 	public function get_angle()				{ return $this->_angle; }
 	public function get_dir()				{ return $this->_dir; }
 }
+
 ?>

@@ -1,3 +1,39 @@
-class Player
+This class handle the description of each player.
 
-represent a player
+An instance must be declared with three parameters: the name of the player,
+the race chosen by the player and his password, which is crypted.
+
+String		getName()
+Return the _name value.
+
+Player		setName()
+Set the variable _name to the given parameter and return the current instance.
+
+String		getRace()
+Return the _race value.
+
+Player		setRace()
+Set the variable _race to the given parameter and return the current instance.
+
+Int			getIdPlayer()
+Return the _id_player value.
+
+String		getIdGame()
+Return the _id_game value.
+
+Player		setIdGame()
+Set the variable _id_game to the given parameter and return the current instance.
+
+String		getPwdcrypt()
+Return the _pwdCrypt value.
+
+Player		setPwdcrypt()
+Set the variable _pwdCrypt to the given parameter and return the current instance.
+
+String		getPlayship()
+Return the _playship value.
+
+Player		setPlayship()
+Set the variable _playship to the given parameter and return the current instance.
+
+A static variable $verbose can be triggered to TRUE to diplsay some debug infos.

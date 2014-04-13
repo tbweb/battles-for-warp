@@ -1,14 +1,12 @@
 <?php
 
+require_once 'class/Doc.class.php';
+
 abstract class Solid{
 	protected  $_phy;
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Solid.doc.txt"))
-			$file = file_get_contents("./Solid.doc.txt");
-		return ($file);
-	}
+	use Doc;
+
 	public function getPhy() {
 		return $this->_phy;
 	}
