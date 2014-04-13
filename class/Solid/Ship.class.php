@@ -1,5 +1,4 @@
 <?php
-
 require_once 'Solid.class.php';
 require_once 'Ship/Weapon.class.php';
 require_once 'Physics.class.php';

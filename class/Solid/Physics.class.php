@@ -17,20 +17,6 @@ class Physics{
 
 	public function set_pos($p)	{ $this->_pos = $p; }
 	public function get_pos()	{ return $this->_pos; }
-	public function getW() {
-		return $this->_w;
-	}
-	public function setW($_w) {
-		$this->_w = $_w;
-		return $this;
-	}
-	public function getH() {
-		return $this->_h;
-	}
-	public function setH($_h) {
-		$this->_h = $_h;
-		return $this;
-	}
 	public function getLife() {
 		return $this->_life;
 	}
@@ -39,5 +25,9 @@ class Physics{
 		return $this;
 	}
 	
+	public function set_w($w)	{ $this->_w = $w; }
+	public function get_w()	{ return $this->_w; }
+	public function set_h($h)	{ $this->_h = $h; }
+	public function get_h()	{ return $this->_h; }
 }
 ?>

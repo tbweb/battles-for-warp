@@ -1,15 +1,77 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tr {
+  display: block;
+  width: 100%;
+  height: 9px;
+}
+tr:first-child {
+  border-top: 1px #667 solid;
+}
+tr td {
+  display: inline-block;
+  width: 9px;
+  height: 100%;
+  border-right: 1px #667 solid;
+  border-bottom: 1px #667 solid;
+}
+tr td:first-child {
+  border-left: 1px #667 solid;
+}
+
 #affichage {  
   display: block;  
   background-color: #000001;  
-  overflow: scroll;  
   border-top-style: none;  
   border-right-style: none;  
   border-bottom-style: none;  
   border-left-style: none;  -webkit-border-radius: 0px 0px 0px 0px;
   border-radius: 0px 0px 0px 0px;  
   text-align: center;  
-  width: 80%;  
-  height: 98%;  
+  width: 1200px;
+  height: 800px;
   position: absolute;
 }
 
@@ -21,23 +83,26 @@
 
 #fond {  
   display: inline-block;  
-  width: 3000px;  
-  height: 2000px;  
+  width: 1501px;
+  height: 901px;
+  
   background-repeat: repeat repeat;  -webkit-border-radius: 0px 0px 0px 0px;
   border-radius: 0px 0px 0px 0px;  
-  border-top-width: 13px;  
-  border-right-width: 13px;  
-  border-bottom-width: 13px;  
-  border-left-width: 13px;  
-  border-top-style: none;  
-  border-right-style: none;  
-  border-bottom-style: none;  
-  border-left-style: none;  
-  border-top-color: #0a0f0a;  
-  border-right-color: #0a0f0a;  
-  border-bottom-color: #0a0f0a;  
-  border-left-color: #0a0f0a;  
-  background-image: url("./espace.jpg");
+  border-top-width: 13px;
+  border-right-width: 13px;
+  border-bottom-width: 13px;
+  border-left-width: 13px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-color: #0a0f0a;
+  border-right-color: #0a0f0a;
+  border-bottom-color: #0a0f0a;
+  border-left-color: #0a0f0a;
+  background-image: url("image/galaxy.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #action {  
