@@ -1,0 +1,68 @@
+@font-face
+{
+	font-family: "Coalition";
+	src: url("../css/fonts/Coalition.ttf") format("truetype");
+}
+
+body
+{
+	background: url("http://wallpoper.com/images/00/31/43/63/outer-space_00314363.jpg");
+	background-size:100%;
+}
+
+h1
+{
+	padding-top:20px;
+	text-align:center;
+	font-color:#555555;
+	font-family: "Coalition";
+	color:#EEEEEE;
+	-webkit-user-select: none;
+}
+
+.connect
+{
+	margin-top:50px;
+	width:100%;
+	text-align:center;
+}
+
+div div h3
+{
+	font-color:#555555;
+	font-family: "Coalition";
+	-webkit-user-select: none;
+}
+
+div form label
+{
+	font-family: "Coalition";
+	display:inline-block;
+	width: 140px;
+}
+
+div form #block_connect
+{
+	margin: 15px 15px 15px 15px;
+	padding: 10px 10px 10px 10px;
+	display:inline-block;
+	background:#EEEEEE;
+	box-shadow:0px 0px 10px 5px #EEEEEE;
+}
+
+#block_connect h3
+{
+	text-align:center;
+}
+
+div form #play
+{
+	display:block;
+	margin:0 auto;
+	padding-top:6px;
+	padding-left:8px;
+	width:100px;
+	font-family: "Coalition";
+	font-size:1.2em;
+	background-color: #EEEEEE;
+}
