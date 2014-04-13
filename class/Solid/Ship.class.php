@@ -1,5 +1,5 @@
 <?php
-class Ship
+class Ship extends Solid
 {
 	private				$_id = 1;
 	private				$_name = "Aurora Class";
@@ -110,6 +110,60 @@ class Ship
 	public function setIdRace($_id_race) {
 		$this->_id_race = $_id_race;
 		return $this;
+	}
+
+	public function move($nbCase) {
+
+		$pos = $this->_phy->getPos();
+		$x = $pos->getX();
+		$y = $pos->getY();
+		$dir = $pos->getDir();
+		$width = $_phy->getW();
+		$height = $_phy->getH();
+
+		if ($nbCase > $this->_speed)
+			return False;
+		if ($dir == 0)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$y--;
+				if ($y < 0)
+					return False;
+			}
+		}
+
+		if ($dir == 1)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$x--;
+				if ($x < 0)
+					return False;
+			}
+		}
+
+		if ($dir == 2)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$y++;
+				if ($y + $height > 100)
+					return False;
+			}
+		}
+
+		if ($dir == 3)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$x++;
+				if ($x + $width > 150)
+					return False;
+			}
+		}
+		$this->_phy->setPos(new Position ($x, $y));
+		return True;
 	}
 }
 ?>

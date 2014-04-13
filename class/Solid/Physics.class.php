@@ -12,7 +12,13 @@ class Physics{
 		return ($file);
 	}
 
-	public function set_pos($p)	{ $this->_pos = $p; }
-	public function get_pos()	{ return $this->_pos; }
+	public function setPos($p)	{ $this->_pos = $p; }
+	public function getPos()	{ return $this->_pos; }
+
+	public function setW($v)	{ $this->_w = $v;}
+	public function getW()		{ return $this->_w; }
+
+	public function setH($v)	{ $this->_h = $v; }
+	public function getH()		{ return $this->_h; }
 }
 ?>
