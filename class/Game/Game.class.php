@@ -22,7 +22,7 @@ class Game
 		foreach ($players as &$player)
 		{
 			$player->setIdGame($this->_id_game);
-			print_r($player);
+// 			print_r($player);
 		}
 	}
 

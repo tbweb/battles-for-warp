@@ -1,10 +1,12 @@
 <?php
-class Player {
-	private $_id_player;
+class Player
+{
+	private $_id_player = 1;
 	private $_name = "";
 	private $_pwdCrypt = "";
 	private $_race = "";
 	private $_id_game;
+	private $_playship;
 
 	public static function doc() {
 		$file = "No documentation for this class.";
@@ -18,6 +20,7 @@ class Player {
 		$this->_name = $name;
 		$this->_pwdCrypt = hash("whirlpool", $pwdCrypt);
 		$this->_race = $race;
+		$this->_playship = new PlayShip($name . " ship", 10, 10);
 	}
 
 	public function getName() {
@@ -59,5 +62,13 @@ class Player {
 		$this->_pwdCrypt = $pwdCrypt;
 		return $this;
 	}
+	public function getPlayship() {
+		return $this->_playship;
+	}
+	public function setPlayship($_playship) {
+		$this->_playship = $_playship;
+		return $this;
+	}
+	
 }
 ?>

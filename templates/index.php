@@ -49,6 +49,8 @@
 			print("<h3>Player $i</h3>");
 			printf($formatName, $player->getName());
 			printf($formatRace, $player->getRace());
+			print("Ship name : " . $player->getPlayShip()->getShipName());
+			print("<br>Ship size : " . $player->getPlayShip()->getShip()->getSize());
 			++$i;
 		}
 		echo  '
