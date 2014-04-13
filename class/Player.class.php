@@ -1,4 +1,7 @@
 <?php
+
+require_once("Doc.class.php");
+
 class Player
 {
 	private $_id_player = 1;
@@ -7,6 +10,8 @@ class Player
 	private $_race = "";
 	private $_id_game;
 	private $_playship;
+
+	use Doc;
 
 	public static function doc() {
 		$file = "No documentation for this class.";
@@ -69,6 +74,5 @@ class Player
 		$this->_playship = $_playship;
 		return $this;
 	}
-	
 }
 ?>
