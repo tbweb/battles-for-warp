@@ -23,8 +23,8 @@ class Ship extends Solid
 		$this->_weapons = new Weapon();
 		$this->_phy = new Physics();
 		$this->_phy->set_pos(new Position(10, 10));
-		$this->_phy->setW(1);
-		$this->_phy->setH(5);
+		$this->_phy->set_w(1);
+		$this->_phy->set_h(5);
 	}
 
 	public static function doc() {
