@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Solid.class.php';
 require_once 'Ship/Weapon.class.php';
 require_once 'Physics.class.php';
@@ -157,6 +158,59 @@ class Ship extends Solid
 	public function setImage($image) {
 		$this->image = $image;
 		return $this;
+
+	public function move($nbCase) {
+
+		$pos = $this->_phy->getPos();
+		$x = $pos->getX();
+		$y = $pos->getY();
+		$dir = $pos->getDir();
+		$width = $_phy->getW();
+		$height = $_phy->getH();
+
+		if ($nbCase > $this->_speed)
+			return False;
+		if ($dir == 0)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$y--;
+				if ($y < 0)
+					return False;
+			}
+		}
+
+		if ($dir == 1)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$x--;
+				if ($x < 0)
+					return False;
+			}
+		}
+
+		if ($dir == 2)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$y++;
+				if ($y + $height > 100)
+					return False;
+			}
+		}
+
+		if ($dir == 3)
+		{
+			for ($i = $nbCase; $i > 0; $i--)
+			{
+				$x++;
+				if ($x + $width > 150)
+					return False;
+			}
+		}
+		$this->_phy->setPos(new Position ($x, $y));
+		return True;
 	}
 }
 ?>

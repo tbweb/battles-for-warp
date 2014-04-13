@@ -14,6 +14,7 @@ class Session
 
 	public function __construct()
 	{
+		session_start();
 		if (!empty($_SESSION['game']) && self::$verbose === TRUE)
 		{
 			print($_SESSION['game']);

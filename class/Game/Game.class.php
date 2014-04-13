@@ -1,6 +1,7 @@
 <?php
 
-require_once 'class/Player.class.php';
+require_once '../Player.class.php';
+require_once '../Doc.class.php';
 
 class Game
 {
@@ -9,21 +10,13 @@ class Game
 	private $_endGame = FALSE;
 	public static $verbose = FALSE;
 
-	public static function doc() {
-		$file = "No documentation for this class.";
-		if (file_exists("./Game.doc.txt"))
-			$file = file_get_contents("./Game.doc.txt");
-		return ($file);
-	}
+	use Doc;
 
 	public function __construct($players)
 	{
 		$this->_players = $players;
 		foreach ($players as &$player)
-		{
 			$player->setIdGame($this->_id_game);
-// 			print_r($player);
-		}
 	}
 
 	public function getPlayers() {
