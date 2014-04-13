@@ -4,6 +4,7 @@
 	require_once 'class/Database/Database.class.php';
 	require_once 'class/Solid/Ship.class.php';
 
+	$pagetoshow = null;
 	$verbose_global = FALSE;
 	if ($verbose_global)
 		Database::$verbose = TRUE;
@@ -11,9 +12,7 @@
 	$db = new Database();
 	$game = $session->getGameInSession();
 	if ($game && !empty($_GET['action']) && $_GET['action'] == "resume")
-	{
 		header('location: game.php');
-	}
 	else if (!empty($_GET['action']) && $_GET['action'] == "new")
 	{
 		if (!empty($_POST['player1']) && !empty($_POST['racePlayer1']) && !empty($_POST['pwdPlayer1'])
@@ -39,6 +38,8 @@
 		$session->deleteGameInSession();
 		header('location: index.php');
 	}
+	else if (!empty($_GET['action']) && $_GET['action'] == "subscribe")
+		$pagetoshow = "subscribe";
 	$query = "SELECT name FROM races";
 	if (!$db->connect_db())
 		header('location: install.php');
@@ -53,5 +54,8 @@
 // 			echo $player->getName();
 // 		}
 	}
-	include "templates/index.php";
+	if (empty($pagetoshow))
+		include "templates/index.php";
+	else
+		include "signin.php";
 ?>

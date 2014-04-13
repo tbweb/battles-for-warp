@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Inscription</title>
+		<title>ASBII - Inscription</title>
+		<link rel="stylesheet" type="text/css" href="/css/signin.css">
 	</head>
-	<body class="bg_img">
+	<body>
 		<section>
 			<h1>Inscription</h1>
+			<div>
 <?php
-	require_once("class/Database/Database.class.php");
-	if (!empty($_POST['submit']) && !empty($_POST['login'])
-		&& !empty($_POST['pwd']) && !empty($_POST['pwd_verif'])
-		&& !empty($_POST['email']) && $_POST['submit'] == "Enregistrer")
+
+require_once("class/Database/Database.class.php");
+
+	if (!empty($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['pwd']) && !empty($_POST['email']) && $_POST['submit'] == "Sign up")
 	{
 		session_start();
 		$db = new database();
 		$db->connect_db();
-		$request[0] = "SELECT name, email FROM players WHERE name='" . $_POST['login'] . "' OR email='" . $_POST['email'] . "';";
-		$request[1] = "INSERT INTO players (name, pwd, email) VALUES ('" . $_POST['login'] . "', '" . $_POST['pwd'] . "', '" . $_POST['email'] . "');";
-		if ($_POST['pwd'] != $_POST['pwd_verif'])
-			echo "Mauvais mot de passe...<br>";
-		else if (!mysqli_fetch_assoc(mysqli_query($db->getDb(), $request[0])))
+		$pw = htmlspecialchars(addslashes($_POST['pwd']));
+		$login = htmlspecialchars(addslashes($_POST['login']));
+		$email = htmlspecialchars(addslashes($_POST['email']));
+		$hashpass = hash("whirlpool", $pw);
+		if (($query = mysqli_query($db->getDb(), "SELECT `name`, `email` FROM `players` WHERE `name` = '$login' OR email = '$email'")) != FALSE)
 		{
-			if (mysqli_query($db->getDb(), $request[1]))
+			if (mysqli_affected_rows($db->getDb()) == 0)
 			{
-				$_SESSION['login_rush'] = $_POST['login'];
-				$_SESSION['pwd_rush'] = $_POST['pwd'];
-				header('location: index.php');
+				if (($query = mysqli_query($db->getDb(), "INSERT INTO `players` (`name`, `pwd`, `email`) VALUES ('$login', '$hashpass', '$email')")) != FALSE)
+				{
+					$_SESSION['login_rush'] = $login;
+					$_SESSION['pwd_rush'] = $hashpass;
+					header('location: index.php');
+				}
+				else
+				{
+					print(mysqli_error($db->getDb()));
+					print("<span class='error'>Error in signin up, please retry.</span>\n");
+				}
 			}
+			else
+				print("<span class='error'>Username/Email already taken...</span>\n");
 		}
 		else
-			echo "Identifiant/email d&eacute;j&agrave; utilis&eacute;...<br>";
+			print("<span class='error'>Error in signin up, please retry.3</span>\n");
 	}
+
 ?>
-			<form name="input" action="signin.php" method="post">
-				<table class="formulaire">
-					<tr>
-						<td>identifiant:</td>
-						<td><input type="text" name="login"></td>
-					</tr>
-					<tr>
-						<td>Mot de passe:</td>
-						<td><input type="password" name="pwd"></td>
-					</tr>
-					<tr>
-						<td>V&eacute;rifier le mot de passe:</td>
-						<td><input type="password" name="pwd_verif"></td>
-					</tr>
-					<tr>
-						<td>E-mail:</td>
-						<td><input type="email" name="email"></td>
-					</tr>
-					<tr>
-						<td colspan="2" style="text-align: center">
-							<input type="submit" name="submit" value="Enregistrer">
-						</td>
-					</tr>
-				</table>
-			</form>
+				<form action="signin.php" method="post">
+					<label for="login">Username:</label>
+					<input type="text" name="login" id="login">
+					<br>
+					<label for="pwd">Password:</label>
+					<input type="password" name="pwd" id="pwd">
+					<br>
+					<label for="email">Email:</label>
+					<input type="email" name="email" id="email">
+					<br>
+					<input type="submit" name="submit" value="Sign up" id="button">
+				</form>
+			</div>
 		</section>
 	</body>
 </html>

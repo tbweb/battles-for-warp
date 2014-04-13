@@ -15,7 +15,7 @@ h1
 	text-align:center;
 	padding-top:20px;
 	font-family: "Coalition";
-	color:#EEEEEE;
+	color:#FFDF18;
 	-webkit-user-select: none;
 }
 
@@ -116,17 +116,13 @@ div form #block_connect
 	-webkit-user-select: none;
 }
 
-div form #play
+div form .button
 {
-	display:block;
-	margin:0 auto;
+	display:inline-block;
 	padding-top:7px;
 	padding-left:7px;
-	width:100px;
 	font-family: "Coalition";
 	font-size:1.2em;
 	color:#EEEEEE;
 	background-color: transparent;
 }
-
-

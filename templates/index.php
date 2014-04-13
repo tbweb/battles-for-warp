@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Awesome Starships Battles II - Acceuil</title>
+		<title>ASBII - Acceuil</title>
 		<link rel="stylesheet" type="text/css" href="/css/index.css">
 	</head>
 	<body>
@@ -31,7 +31,10 @@
 					}
 				?>
 				<br>
-				<input type="submit" value="Jouer" id="play"/>
+				<input type="submit" value="Jouer" class="button"/>
+			</form>
+			<form action="index.php?action=subscribe" method="POST">
+				<input type="submit" value="S'inscrire" class="button"/>
 			</form>
 		</div>
 		<hr>

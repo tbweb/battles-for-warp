@@ -42,7 +42,7 @@
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 		$request[5] = "CREATE TABLE `players` (
-		  `id_player` int(11) unsigned NOT NULL,
+		  `id_player` int(11) unsigned AUTO_INCREMENT NOT NULL,
 		  `name` varchar(50) NOT NULL,
 		  `pwd` varchar(255) NOT NULL,
 		  `email` varchar(255) NOT NULL,
